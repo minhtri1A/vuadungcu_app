@@ -1,0 +1,9 @@
+import { ComponentType } from 'react';
+import withAuth from './withAuth';
+import { withInteractionsManaged } from './withInteractionsAuth';
+
+export function withInteractionsAuth<Props>(Component: ComponentType<any>) {
+    return (props: Props) => {
+        return withInteractionsAuth(withInteractionsManaged(withAuth(Component)));
+    };
+}

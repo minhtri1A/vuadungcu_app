@@ -1,0 +1,112 @@
+*** style ***
+    const useStyles = (theme: themeType) =>
+    StyleSheet.create({
+    });
+**type**
+    + children: React.ReactNode
+    + render flat list
+    + Flatlist render:
+         
+        const renderCartItemSeller: ListRenderItem<CartItemsSellerResponseType> = ({ item, index }) => (
+            ...
+        );
+
+**cache-swr**
+    + tham số: cache = số giây
+    useEffect(() => {
+        swrCache(data, mutate, key, cache);
+    }, [data]);
+
+**image**
+    + use:
+        + import Image from 'components/Image';
+        + view: w:width, ratio:1
+        + source={{
+            uri: slide.image,
+        }}
+        resizeMode={'stretch'}
+    + require:
+        require('asset/icon_zalo.png')
+    + check null
+         productPos?.image
+            ? {
+                uri: productPos?.image,
+            }
+            : require('asset/img-ntl-grey.png')
+    
+***import***
+    + Khi tạo component theo kiểu này sẽ được nhắc code
+        const OrdersScreen = memo(function OrdersScreen({ navigation }: Props) {
+        });
+    + Còn kiểu này thì không 
+        export default memo(function EventDetail({ navigation, route }: Props) {
+
+*** Tạo một navigator ***
+    *b1:
+        + Trong config thêm vào một stack, screen or tab
+            + Khi tạo một navigator type =stack thì cần thêm child là một mảng chứa các screen của stack
+            + Khi tạo một navigator type =screen thì cần truyền component của screen đó
+        + Nếu muốn một stack không hiên thị trong câu hình deeplink thì set link:null
+        + Nếu muốn một screen không hiển thị trong cấu hình deeplink thì set undefined(bỏ trống)
+        + Nếu một screen có deeplink mà không muốn hiển thị trên cấu hình server thì set is_no_choose=true
+        + bottomOptions chỉ cấu hình option cho tab(type==='tab')
+        + link: liên kết deeplink
+    *b2:
+        + Tạo const router
+        + Khai báo type cho screen trong navigator/type/index.d.ts
+
+*** Refresh control ***
+    refreshControl={
+        <RefreshControl
+            onRefresh={refreshList}
+            refreshing={refresh}
+            colors={[theme.colors.main["600"]]}
+        />
+     }>
+
+*** Loading ***
+
+*** LayoutAnimation ***
+
+        LayoutAnimation.configureNext({
+            duration: 100,
+            create: { type: 'linear', property: 'opacity' },
+        });
+
+*** Reload khi save code ***
+    + nên tắt withAuth khi code thì save sẽ không bị refresh screen
+
+*** Sentry***
+        console.log('ERROR onAppBootstrap - onAppStart', error);
+        sendSentryError(error, 'removeItemFromCart');
+
+*** Type ***
+route: RouteProp<ProductDetailStackParamsList, 'ProductDetailScreen'>;
+    navigation: StackNavigationProp<any, any>;
+
+*** Type ***   
+    + replace xoa bo . trong input: value.replace(/\./g, '')
+
+***helper***
+    + replace url : replace(/^https?:\/\//, '')
+
+    source ~/.bash_profile
+
+*** Request permission ***
+    const granted = await PermissionsAndroid.request(
+    PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+        {
+            title: 'Yêu cầu quyền truy cập vị trí',
+            message:
+                'Vua dụng cụ muốn sử dụng vị trí của bạn, để để cung cấp trải nghiệm tốt hơn cho bạn!',
+            buttonNeutral: 'Hỏi lại sau',
+            buttonNegative: 'Đóng',
+            buttonPositive: 'Đồng ý',
+        }
+    );
+    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+        console.log('You can use the location');
+    } else {
+        console.log('Location permission denied');
+    }
+

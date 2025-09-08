@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "132117229363",
+    "project_id": "vuadungcucom",
+    "storage_bucket": "vuadungcucom.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:132117229363:android:6b0efcfdd2b95a9a1ed846",
+        "android_client_info": {
+          "package_name": "com.vuadungcuapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "132117229363-3k2fv4gdn0b5u7t7aag68eqou287hsc3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vuadungcuapp",
+            "certificate_hash": "1a586a0ae00f244ab26d3ca3c041a1728d5d03ba"
+          }
+        },
+        {
+          "client_id": "132117229363-jd4h1q8mp0sskj9fcjsb6r1i3fmft9b3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpv9bk85jKEGDWp1qm8CayhJZwu7mlm9g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "132117229363-jd4h1q8mp0sskj9fcjsb6r1i3fmft9b3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

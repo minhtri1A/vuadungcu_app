@@ -1,0 +1,27 @@
+1/ Chỉnh sửa  version  code  và  version  name trong  app-build.gradlee
+2/ Bật 2 tab 
+    + def enableProguardInReleaseBuilds = true
+    + enableSeparateBuildPerCPUArchitecture= true
+3/ Chỉnh file env REACT_NATIVE_APP_IS_MODE thành pro
+4/ Trong gradle.properties comment dev key lại và mở cmt prod key 
+5/ Thay đổi file filebase trong android/app thành prod
+6/ + Kiểm tra cập nhật màn hình hệ thống:
+		+ onAppStart - const dataConfigs = getConfigCmsPage();
+7/ Check clear console trong file index
+8/ kiểm tra withAuth của các screen -> cần mở khi up
+9/ nhớ kiểm tra lại version của ios -> nâng lên 1 nếu subbmit thành công trước đó
+10/ Nhớ bật sentry
+
+//current version in code push and store
+android
+code: 3145762
+name: 1.1.4
+
+ios 
+version: 1.1.4
+build: 37
+
+//quy trình quản lý hiện tại
++ branch main: code chính 
++ deploy: chứa source code hiện tại của ứng dụng  đang  được publish - 1.0.6 - 10
++ backup: chứa source code trước đó một phiên bản của ứng dụng đang được publish - 1.0.5 - 9

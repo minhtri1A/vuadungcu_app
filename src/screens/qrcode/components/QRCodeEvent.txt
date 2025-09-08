@@ -1,0 +1,88 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import Alert from 'components/Alert';
+import LoadingFetchAPI from 'components/LoadingFetchAPI';
+import { Routes, Status } from 'constants/index';
+import { getMessage, useEventQrCodeSwr, useNavigation, useTheme } from 'hooks';
+import React, { memo, useEffect } from 'react';
+
+export interface Props {
+    qr_type: string;
+    qr_data: string;
+    resetQRCode: () => any;
+}
+
+const QRCodeEvent = memo(function QRCodeEvent({ qr_type, qr_data, resetQRCode }: Props) {
+    //hooks
+    const navigation = useNavigation();
+    const { theme } = useTheme();
+    //swr
+    const { checkQrCodeAndUpdateQrScore, status, message, resetState, qrScanScore } =
+        useEventQrCodeSwr('info', {
+            revalidateOnMount: false,
+        });
+    //value
+    const messageh = getMessage(message, { qrScanScore });
+
+    //effect
+    useEffect(() => {
+        if (qr_data) {
+            checkQrCodeAndUpdateQrScore(qr_data);
+        }
+    }, [qr_type, qr_data]);
+
+    //handle
+    const handleResetQRCode = () => {
+        resetState();
+        resetQRCode();
+    };
+    //navigate
+    const navigateToEventScreen = () => {
+        navigation.replace(Routes.NAVIGATION_TO_EVENT_STACK, {
+            screen: Routes.NAVIGATION_TO_EVENT_SCREEN,
+            params: {
+                type: 'qr_code',
+            },
+        });
+    };
+
+    if (status === Status.LOADING) {
+        return (
+            <LoadingFetchAPI
+                visible={true}
+                styleView={{ position: 'absolute' }}
+                size={theme.typography.size(50)}
+                color={theme.colors.grey_[400]}
+            />
+        );
+    }
+
+    if (status !== Status.DEFAULT) {
+        return (
+            <Alert
+                isVisible={status !== Status.DEFAULT}
+                type={status === Status.SUCCESS ? 'success' : 'error'}
+                title={
+                    status === Status.SUCCESS
+                        ? 'Quét mã QR Code thành công'
+                        : 'Quét mã QR Code thất bại'
+                }
+                message={messageh}
+                okBtnTitle="Xem điểm"
+                showBtnOk={status === Status.SUCCESS}
+                canBtnTitle="Thử lại"
+                canBtnProps={{
+                    type: status === Status.SUCCESS ? 'outline' : 'solid',
+                    color: status === Status.SUCCESS ? 'green' : theme.colors.white_[10],
+                }}
+                onOk={navigateToEventScreen}
+                onCancel={handleResetQRCode}
+                messageProps={{ ta: 'center' }}
+                onBackdropPress={handleResetQRCode}
+            />
+        );
+    }
+
+    return null;
+});
+
+export default QRCodeEvent;

@@ -1,0 +1,206 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useTheme } from '@rneui/themed';
+import BottomSheet from 'components/BottomSheet';
+import Button from 'components/Button';
+import Image from 'components/Image';
+import LoadingFetchAPI from 'components/LoadingFetchAPI';
+import Text from 'components/Text';
+import View from 'components/View';
+import { Env, Routes, Status, WebPath } from 'constants/index';
+import { useCartSwr, useNavigation } from 'hooks';
+import { ProductDetailPosResponseType } from 'models';
+import React, { memo, useEffect, useState } from 'react';
+import { Linking } from 'react-native';
+import { showMessage } from 'react-native-flash-message';
+import { services } from 'services';
+import { currencyFormat } from 'utils/helpers';
+
+export interface Props {
+    qr_type: string;
+    qr_data: string;
+    resetQRCode: () => any;
+}
+
+const QRCodeProduct = memo(function QRCodeProduct({ qr_type, qr_data, resetQRCode }: Props) {
+    //hooks
+    const { theme } = useTheme();
+    const navigation = useNavigation();
+    const [visible, setVisible] = useState(false);
+    const [status, setStatus] = useState<string>(Status.DEFAULT);
+    const [productPos, setProductPos] = useState<ProductDetailPosResponseType>();
+    //swr
+    const { addProductToCart, statusAdd } = useCartSwr({}, { revalidateOnMount: false });
+    //value
+    const checkProductWeb = productPos?.product_uuid ? true : false;
+
+    //effect
+    //--get product pos
+    useEffect(() => {
+        (async () => {
+            if (qr_data) {
+                try {
+                    setStatus(Status.LOADING);
+                    const result: ProductDetailPosResponseType =
+                        await services.admin.getProductDetailPos(qr_data);
+                    console.log('response detail pos ', result);
+                    if (result.pos_product_id) {
+                        setProductPos(result);
+                        setVisible(true);
+                    }
+                    throw null;
+                } catch (error) {
+                    showMessage({
+                        message: 'Mã Code không hợp lệ xin vui lòng thử lại !',
+                        type: 'danger',
+                        position: 'top',
+                        duration: 4000,
+                        onHide: () => {
+                            resetQRCode();
+                        },
+                    });
+                } finally {
+                    setStatus(Status.DEFAULT);
+                }
+            }
+        })();
+    }, [qr_type, qr_data]);
+
+    //--show cart message
+    useEffect(() => {
+        if (statusAdd === Status.SUCCESS) {
+            showMessage({
+                message: 'Thêm sản phẩm vào giỏ hàng thành công!',
+                type: 'success',
+            });
+        }
+    }, [statusAdd]);
+
+    //handle
+    const handleResetQRCode = () => {
+        resetQRCode();
+    };
+
+    const handleAddProductToCart = () => {
+        const productUuid = productPos?.product_uuid;
+        if (productUuid) {
+            addProductToCart(productUuid);
+        }
+    };
+
+    //navigate
+    const navigateProductDetail = () => {
+        handleResetQRCode();
+        navigation.navigate(Routes.NAVIGATION_TO_PRODUCT_DETAIL_SCREEN, {
+            product_uuid: productPos?.product_uuid,
+        });
+    };
+
+    const openProductDetailDeepLink = () => {
+        const { name, product_uuid } = productPos || {};
+        if (name && product_uuid) {
+            const productUrl = WebPath.PRODUCT_DETAIL_URL(name, product_uuid);
+            const host = Env.REACT_NATIVE_APP_WEB_URL;
+            const webLink = `${host}${productUrl}`;
+            Linking.openURL(webLink);
+        }
+    };
+
+    if (status === Status.LOADING) {
+        return (
+            <LoadingFetchAPI
+                visible={true}
+                styleView={{ position: 'absolute' }}
+                size={theme.typography.size(50)}
+                color={theme.colors.grey_[400]}
+            />
+        );
+    }
+
+    return (
+        <BottomSheet
+            isVisible={visible}
+            radius
+            onBackdropPress={handleResetQRCode}
+            triggerOnClose={handleResetQRCode}
+        >
+            <View bg={theme.colors.white_[10]}>
+                <Text size={'title1'} ta="center" mb={'large'}>
+                    Thông tin sản phẩm
+                </Text>
+                <View flexDirect="row" mb="medium">
+                    <Image
+                        source={
+                            productPos?.image
+                                ? {
+                                      uri: productPos?.image,
+                                  }
+                                : require('asset/img-ntl-grey.png')
+                        }
+                        resizeMode="contain"
+                        w={'20%'}
+                        ratio={1}
+                    />
+                    <View pl={'small'} flex={1}>
+                        <Text ellipsizeMode="tail" numberOfLines={2}>
+                            {productPos?.name}
+                        </Text>
+                        <Text color="red">{currencyFormat(productPos?.pricesell)}</Text>
+                    </View>
+                </View>
+                {!checkProductWeb ? (
+                    <Text ta="center" size={'body1'} color="red">
+                        (Sản phẩm chưa tồn tại trên website, không thể mở liên kết)
+                    </Text>
+                ) : null}
+                {/* button */}
+                <View mt={'medium'}>
+                    <View flexDirect="row">
+                        <View flex={1} mr="small">
+                            <Button
+                                title={'Xem chi tiết'}
+                                type="outline"
+                                color={theme.colors.main['600']}
+                                border={1}
+                                disabled={!checkProductWeb}
+                                onPress={navigateProductDetail}
+                            />
+                        </View>
+                        <View flex={1}>
+                            <Button
+                                title={'Liên kết'}
+                                icon={{
+                                    type: 'material-community',
+                                    name: 'web',
+                                    color: checkProductWeb
+                                        ? theme.colors.main["600"]
+                                        : theme.colors.grey_[400],
+                                }}
+                                type="outline"
+                                color={theme.colors.main['600']}
+                                border={1}
+                                disabled={!checkProductWeb}
+                                onPress={openProductDetailDeepLink}
+                            />
+                        </View>
+                    </View>
+                    <View mt={'small'}>
+                        <Button
+                            title={'Thêm vào giỏ hàng'}
+                            icon={{
+                                type: 'material-community',
+                                name: 'cart-plus',
+                                color: checkProductWeb
+                                    ? theme.colors.main["600"]
+                                    : theme.colors.grey_[400],
+                            }}
+                            disabled={!checkProductWeb}
+                            onPress={handleAddProductToCart}
+                        />
+                    </View>
+                </View>
+            </View>
+        </BottomSheet>
+    );
+});
+
+export default QRCodeProduct;

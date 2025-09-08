@@ -1,0 +1,161 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import BottomSheet from 'components/BottomSheet';
+import Button from 'components/Button';
+import Image from 'components/Image';
+import Text from 'components/Text';
+import View from 'components/View';
+import { useNavigate, useTheme } from 'hooks';
+import React, { memo, useEffect, useState } from 'react';
+import { ActivityIndicator } from 'react-native';
+import WebView, { WebViewMessageEvent } from 'react-native-webview';
+import { isURL } from 'utils/helpers';
+
+export interface Props {
+    qr_type: string;
+    qr_data: string;
+    resetQRCode: () => any;
+}
+
+const QRCodeUrl = memo(function QRCodeUrl({ qr_type, qr_data, resetQRCode }: Props) {
+    //hooks
+    const [visible, setVisible] = useState(false);
+    const { theme } = useTheme();
+    const navigate = useNavigate();
+    //swr
+    //state
+    const [webMeta, setWebMeta] = useState<{
+        title: string;
+        description: string;
+        image: string;
+        // icon?: string;
+        // shortcutIcon?: string;
+    }>();
+    //value
+    const jsCode3 = `(function() {
+        try {
+            const title = document.querySelector('meta[property="og:title"]').content;
+            const description = document.querySelector('meta[name="description"]').content;
+            const image = document.querySelector('meta[property="og:image"]').content;
+            // const icon = document.querySelector("link[rel='icon']");
+            // const shortcutIcon = document.querySelector("link[rel='shortcut icon']");
+    
+            window.ReactNativeWebView.postMessage(JSON.stringify({
+                title,
+                description,
+                image,
+                // icon:icon ? icon.href : "",
+                // shortcutIcon: shortcutIcon ? shortcutIcon.href : ""
+            }))
+        } catch (error) {
+            window.ReactNativeWebView.postMessage(JSON.stringify(error))
+        }
+       
+        
+    })();`;
+
+    //effect
+    useEffect(() => {
+        if (qr_data) {
+            setVisible(true);
+        }
+    }, [qr_type, qr_data]);
+
+    //handle
+    const handleResetQRCode = () => {
+        resetQRCode();
+    };
+    const fetchMetaFromUrl = async (event: WebViewMessageEvent) => {
+        if (event.nativeEvent.data) {
+            const metaTags: any = JSON.parse(event.nativeEvent.data);
+            const image = isURL(metaTags.image) ? metaTags.image : `${qr_data}${metaTags.image}`;
+            setWebMeta({
+                ...metaTags,
+                image,
+            });
+        }
+    };
+    //navigate
+    const openDeepLink = () => {
+        resetQRCode();
+        navigate.WEBVIEW_SCREEN_ROUTE({ url: qr_data })();
+    };
+
+    return (
+        <BottomSheet
+            isVisible={visible}
+            radius
+            onBackdropPress={handleResetQRCode}
+            triggerOnClose={handleResetQRCode}
+        >
+            <View bg={theme.colors.white_[10]}>
+                <View flexDirect="row" mb="medium">
+                    {/* <View w={theme.dimens.scale(50)} ratio={1} p={'small'} bg="grey1" jC="center">
+                        {webMeta?.icon || webMeta?.shortcutIcon ? (
+                            <Image
+                                source={{ uri: webMeta?.icon || webMeta?.shortcutIcon || '' }}
+                                resizeMode="contain"
+                            />
+                        ) : (
+                            <Icon
+                                type="ionicon"
+                                name="link-outline"
+                                size={theme.typography.size(30)}
+                            />
+                        )}
+                    </View> */}
+                    <View flex={1}>
+                        <Text size={'body3'}>{webMeta?.title || 'Liên kết'}</Text>
+                        <Text
+                            ellipsizeMode="tail"
+                            numberOfLines={3}
+                            color={theme.colors.main['300']}
+                        >
+                            {qr_data}
+                        </Text>
+                        <View
+                            style={{
+                                width: '100%',
+                                minHeight: theme.dimens.verticalScale(150),
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                marginTop: theme.spacings.small,
+                                backgroundColor: !webMeta?.image
+                                    ? theme.colors.grey_[200]
+                                    : undefined,
+                            }}
+                        >
+                            {webMeta?.image ? (
+                                <View
+                                    w={'100%'}
+                                    h={theme.dimens.verticalScale(150)}
+                                    bg="grey1"
+                                    radius={5}
+                                >
+                                    <Image
+                                        source={{ uri: webMeta?.image }}
+                                        resizeMode="contain"
+                                        radius={5}
+                                    />
+                                </View>
+                            ) : (
+                                <ActivityIndicator color={theme.colors.grey_[400]} />
+                            )}
+                        </View>
+                    </View>
+                </View>
+                <Button title={'Mở liên kết'} onPress={openDeepLink} />
+            </View>
+            {/* webview get meta */}
+            <WebView
+                source={{ uri: qr_data }}
+                injectedJavaScript={jsCode3}
+                onMessage={fetchMetaFromUrl}
+                // javaScriptEnabled={false}
+                startInLoadingState={false}
+                containerStyle={{ zIndex: 1, display: 'none', backgroundColor: 'red' }}
+            />
+        </BottomSheet>
+    );
+});
+
+export default QRCodeUrl;
