@@ -7,7 +7,13 @@ import Text from 'components/Text';
 import View from 'components/View';
 import { useCategoriesSWR, useNavigate, useTheme } from 'hooks';
 import React, { memo, useEffect, useState } from 'react';
-import { ActivityIndicator, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
+import {
+    ActivityIndicator,
+    ScrollView,
+    StatusBar,
+    StyleSheet,
+    TouchableOpacity,
+} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Ripple from 'react-native-material-ripple';
 
@@ -119,6 +125,7 @@ const CategoriesScreen = memo(function CategoriesScreen() {
 
     return (
         <View style={styles.view_container}>
+            <StatusBar barStyle="dark-content" backgroundColor="white" />
             <Header
                 centerTitle="Danh mục sản phẩm"
                 backgroundColor={theme.colors.white_[10]}

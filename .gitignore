@@ -62,6 +62,7 @@ buck-out/
 *.apk
 *.aab
 /androi/app/build
+/android/app/.cxx
 /android/*.hprof
 *.ipa
 *.zip

@@ -16,6 +16,8 @@ end
 
 target 'com.vuadungcuapp' do
   config = use_native_modules!
+  # fix(The following Swift pods cannot yet be integrated as static libraries)
+  use_frameworks! :linkage => :static
 
   use_react_native!(
     :path => config[:reactNativePath],

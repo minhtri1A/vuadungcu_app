@@ -13,7 +13,6 @@ import linking from 'navigation/linking';
 import RootStackNavigator from 'navigation/navigator/RootStackNavigator';
 import React, { useEffect } from 'react';
 import { ActivityIndicator, Linking, Platform, StatusBar, useColorScheme } from 'react-native';
-import BootSplash from 'react-native-bootsplash';
 import Config from 'react-native-config';
 import FlashMessage, { showMessage } from 'react-native-flash-message';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -27,6 +26,7 @@ import { sendSentryError } from 'utils/storeHelpers';
 import { navigationRef } from './navigation/RootNavigation';
 import { onAppStart } from './utils/onAppStart';
 import { persistor, store } from 'app/store';
+import RNBootSplash from 'react-native-bootsplash';
 
 /* eslint-disable react-hooks/exhaustive-deps */
 /**
@@ -38,7 +38,7 @@ import { persistor, store } from 'app/store';
  */
 
 Sentry.init({
-    dsn: SENTRY_KEY,
+    // dsn: SENTRY_KEY,
     // Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
     // We recommend adjusting this value in production.
     tracesSampleRate: 0.5,
@@ -64,7 +64,6 @@ const App = () => {
             await onAppStart(store);
             // config app
             setCustomText(customTextProps);
-            console.log('check config env ', Config.REACT_NATIVE_APP_IS_MODE);
             // set sentry user
             try {
                 const currentCustomerLocal = await AsyncStorage.getItem('@current-customer');
@@ -133,7 +132,8 @@ const App = () => {
     console.log('hihihihi', SENTRY_KEY);
     return (
         <SafeAreaProvider>
-            <StatusBar backgroundColor="transparent" />
+            {/* <StatusBar backgroundColor="transparent" /> */}
+            <StatusBar barStyle="dark-content" backgroundColor="white" translucent={false} />
             <FlashMessage
                 position="top"
                 statusBarHeight={StatusBar.currentHeight}
@@ -205,7 +205,8 @@ const App = () => {
                                     linking={linking}
                                     ref={navigationRef}
                                     onReady={() => {
-                                        BootSplash.hide();
+                                        console.log('ready navigation');
+                                        RNBootSplash.hide();
                                     }}
                                 >
                                     <LoadingApp />

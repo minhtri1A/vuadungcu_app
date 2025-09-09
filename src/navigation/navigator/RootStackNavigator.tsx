@@ -19,7 +19,6 @@ const RootStackNavigator = memo(() => {
     const RootStack = createStackNavigator<RootStackParamsList>();
     const Tab = createBottomTabNavigator<AppTabParamsList>();
     let listNavigator: React.ReactNode[] = [];
-    console.log('render root stack');
     //create app navigator
     const createAppNavigator = (
         config: Array<NavigatorConfigType>,

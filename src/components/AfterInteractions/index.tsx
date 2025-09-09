@@ -25,17 +25,6 @@ const AfterInteractions = memo(function AfterInteractions({ children, skeleton, 
         };
     }, []);
 
-    // useEffect(() => {
-    //     if (interactionsComplete) {
-    //         Animated.timing(animateTransition, {
-    //             toValue: 1,
-    //             duration: 100, // Adjust the duration as needed
-    //             easing: Easing.ease,
-    //             useNativeDriver: false, // Adjust as needed
-    //         }).start();
-    //     }
-    // }, [interactionsComplete]);
-
     return (
         <>
             {interactionsComplete ? (

@@ -87,7 +87,6 @@ export default memo(function SettingScreen({ navigation }: Props) {
                                 onPress={() => {
                                     navigation.navigate(NAVIGATION_ACCOUNT_STACK);
                                 }}
-                                hasTVPreferredFocus
                             >
                                 <ListItem.Title style={styles.list_title_style}>
                                     Thông tin tài khoản
@@ -99,7 +98,6 @@ export default memo(function SettingScreen({ navigation }: Props) {
                                 bottomDivider
                                 containerStyle={styles.list_containerStyle}
                                 onPress={navigate.ADDRESS_ROUTE({ type: 'customer' })}
-                                hasTVPreferredFocus
                             >
                                 <ListItem.Title style={styles.list_title_style}>
                                     Địa chỉ
@@ -112,7 +110,6 @@ export default memo(function SettingScreen({ navigation }: Props) {
                                 onPress={() => {
                                     navigation.navigate(NAVIGATION_SOCIAL_LINK_SCREEN);
                                 }}
-                                hasTVPreferredFocus
                             >
                                 <ListItem.Title style={styles.list_title_style}>
                                     Liên kết mạng xã hội
@@ -138,7 +135,6 @@ export default memo(function SettingScreen({ navigation }: Props) {
                                 onPress={() => {
                                     navigation.navigate(NAVIGATION_SETTING_REFERRAL_SCREEN);
                                 }}
-                                hasTVPreferredFocus
                             >
                                 <ListItem.Title style={styles.list_title_style}>
                                     Chia sẻ ứng dụng tích xu

@@ -10,12 +10,4 @@
     <string name="fb_login_protocol_scheme">fb383721547615245</string>
     <string name="facebook_client_token">bf444a825bc02b39c78943b958c38f4e</string>
 
-    <!-- code push -->
-    <!-- dev -->
-    <string moduleConfig="true" name="CodePushDeploymentKey">9ToO-hWAWqgmiMCHQfZceuxVYLvDQmLJp1C7V</string>
-    <!-- prod -->
-    <!-- <string moduleConfig="true" name="CodePushDeploymentKey">hiBSHZXsJtoFyV4k1_NlNwEfiF5X9A9gGZ9et</string> -->
-
-    <string name="appCenterCrashes_whenToSendCrashes" moduleConfig="true" translatable="false">DO_NOT_ASK_JAVASCRIPT</string>
-    <string name="appCenterAnalytics_whenToEnableAnalytics" moduleConfig="true" translatable="false">ALWAYS_SEND</string>
 </resources>

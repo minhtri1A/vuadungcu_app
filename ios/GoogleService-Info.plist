@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>132117229363-09fnd22rva1ro27l3dln9iavt0kchjr2.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.132117229363-09fnd22rva1ro27l3dln9iavt0kchjr2</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>132117229363-2kduugd40ecg7ut578tjd34t4bjfbgp8.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDc-nPfW6GXvNfX---43Y-YTuPqLBp7D-Q</string>
+	<key>GCM_SENDER_ID</key>
+	<string>132117229363</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.vuadungcuapp</string>
+	<key>PROJECT_ID</key>
+	<string>vuadungcucom</string>
+	<key>STORAGE_BUCKET</key>
+	<string>vuadungcucom.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:132117229363:ios:3a2873c49eeeab0d1ed846</string>
+</dict>
+</plist>
