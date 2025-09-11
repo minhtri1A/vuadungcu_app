@@ -8,7 +8,6 @@ import LinearGradient from 'react-native-linear-gradient';
 import Animated from 'react-native-reanimated';
 
 interface Props extends HeaderProps {
-    colors?: any[];
     statusBarColor?: string;
     shadow?: boolean;
     //animated
@@ -37,11 +36,10 @@ const Header = memo(function Header_(props: Props) {
     const navigation = useNavigation();
     //value
     const {
-        colors = theme.colors.primaryGradient,
         shadow,
         colorsAnimated = theme.colors.primaryGradient,
         animated,
-        backgroundColor,
+        backgroundColor = theme.colors.main['500'],
         statusBarColor = theme.colors.transparent,
         colorBackIcon = theme.colors.black_[10],
         centerTitle,
@@ -57,7 +55,6 @@ const Header = memo(function Header_(props: Props) {
     const propsButton = omitBy(props, (_, key) =>
         includes(
             [
-                'colors',
                 'shadow',
                 'colorsAnimated',
                 'animated',
@@ -76,23 +73,11 @@ const Header = memo(function Header_(props: Props) {
     return (
         <View style={[viewContainerStyle, shadow1]}>
             <H
-                ViewComponent={backgroundColor ? undefined : LinearGradient}
                 statusBarProps={{
                     translucent: true,
                     backgroundColor: statusBarColor,
                     barStyle: 'dark-content',
                 }}
-                linearGradientProps={
-                    backgroundColor
-                        ? undefined
-                        : {
-                              colors: colors,
-                              //   start: { x: 0.7, y: 0.7 },
-                              //   end: { x: 0.3, y: 0.3 },
-                              start: { x: 0.2, y: 1 },
-                              end: { x: 0.2, y: 0 },
-                          }
-                }
                 backgroundColor={backgroundColor}
                 leftComponent={
                     <IconButton

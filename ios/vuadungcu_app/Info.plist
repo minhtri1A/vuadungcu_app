@@ -125,6 +125,8 @@
 	<string>Vua Dụng Cụ cần quyền truy cập vào thư viện hình ảnh của bạn để tiếp tục sử dụng chức năng Cập nhật ảnh đại diện, Nhắn tin.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>Để sử dụng tính năng tìm kiếm bằng giọng nói, hãy cho phép Vua Dụng Cụ bật tính năng nhận dạng giọng nói.</string>
+	<key>RCTNewArchEnabled</key>
+	<true/>
 	<key>UIAppFonts</key>
 	<array>
 		<string>fontello.ttf</string>

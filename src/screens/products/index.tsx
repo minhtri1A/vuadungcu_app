@@ -171,6 +171,7 @@ const ProductScreen = memo(function ProductScreen(props: Props) {
                         }
                     />
                 }
+                backgroundColor={theme.colors.main[500]}
                 centerContainerStyle={{ flex: 0.77 }}
                 rightContainerStyle={{ flex: 0.13 }}
                 rightComponent={<MiniCart />}

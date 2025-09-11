@@ -1871,11 +1871,11 @@ PODS:
     - SocketRocket
   - react-native-biometrics (3.0.1):
     - React-Core
-  - react-native-config (1.5.9):
-    - react-native-config/App (= 1.5.9)
-  - react-native-config/App (1.5.9):
+  - react-native-config (1.5.5):
+    - react-native-config/App (= 1.5.5)
+  - react-native-config/App (1.5.5):
     - React-Core
-  - react-native-date-picker (5.0.13):
+  - react-native-date-picker (5.0.12):
     - boost
     - DoubleConversion
     - fast_float
@@ -3968,8 +3968,8 @@ SPEC CHECKSUMS:
   React-Mapbuffer: bd9e0b326013ba621165bad90b83979fcdaebe6f
   React-microtasksnativemodule: b0aca6ebaea96c8c5ecdf3050ef6d04eda73ff18
   react-native-biometrics: 43ed5b828646a7862dbc7945556446be00798e7d
-  react-native-config: d08b60865268872495a43e211059b4606131fe01
-  react-native-date-picker: 64ccae6c3a8104a168cef950fea8e1fe616cda82
+  react-native-config: 644074ab88db883fcfaa584f03520ec29589d7df
+  react-native-date-picker: a06d7eb5d84c27b6f02a2e3f3a01ce50b2f4a3a0
   react-native-fbsdk-next: 52f81e60eb3e8e0e06cf9728b4572d3509ca9d01
   react-native-geolocation: 49d39b53dfeb6c22ff1ad69e71ac9c7981affdaa
   react-native-geolocation-service: 32b2c2a3b91e70ce2a8d0c684801aaeb0a07e0ec
@@ -4052,6 +4052,6 @@ SPEC CHECKSUMS:
   Yoga: f95f7e60346fa6828def95fbe5017346ccc8940e
   ZXingObjC: 8898711ab495761b2dbbdec76d90164a6d7e14c5
 
-PODFILE CHECKSUM: aa97880796cfb19485187726164a45434f4d1ac4
+PODFILE CHECKSUM: 2ace748928c8d8056a132e85b8c6bb7ab5eaadd7
 
 COCOAPODS: 1.16.2

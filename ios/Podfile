@@ -14,7 +14,7 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-target 'com.vuadungcuapp' do
+target 'vuadungcu_app' do
   config = use_native_modules!
   # fix(The following Swift pods cannot yet be integrated as static libraries)
   use_frameworks! :linkage => :static
@@ -22,7 +22,10 @@ target 'com.vuadungcuapp' do
   use_react_native!(
     :path => config[:reactNativePath],
     # An absolute path to your application root.
-    :app_path => "#{Pod::Config.instance.installation_root}/.."
+    :app_path => "#{Pod::Config.instance.installation_root}/..",
+    # new architecture
+    :hermes_enabled => false,
+    :fabric_enabled => true,
   )
 
   post_install do |installer|

@@ -46,15 +46,14 @@ Sentry.init({
 });
 
 const App = () => {
-    const scheme = useColorScheme();
-    console.log('scheme ', scheme);
-
     //set font app
     const customTextProps = {
         style: {
             fontFamily: Platform.OS === 'ios' ? 'Helvetica' : 'Roboto',
         },
     };
+
+    console.log('check configs ', Config.REACT_NATIVE_APP_IS_MODE);
 
     //start app
     useEffect(() => {

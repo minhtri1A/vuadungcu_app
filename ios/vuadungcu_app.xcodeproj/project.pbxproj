@@ -7,29 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		109535A32E70284700BAED4B /* Images.xcassets 16-08-34-794.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 109535A12E70284700BAED4B /* Images.xcassets 16-08-34-794.xcassets */; };
+		108108A32E7258CE00A5E251 /* GoogleService-Info-dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = 108108A22E7258CE00A5E251 /* GoogleService-Info-dev.plist */; };
+		108108A42E7258CE00A5E251 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 108108A12E7258CE00A5E251 /* GoogleService-Info.plist */; };
 		109535A42E70284700BAED4B /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1095359F2E70284700BAED4B /* Colors.xcassets */; };
 		109535A82E7028B200BAED4B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 109535A72E7028B200BAED4B /* Images.xcassets */; };
 		109535A92E7028B200BAED4B /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 109535A62E7028B200BAED4B /* BootSplash.storyboard */; };
-		1F4D287A3047C4707BEA75CE /* Pods_com_vuadungcuapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D336B43E69916DE7976BD9DE /* Pods_com_vuadungcuapp.framework */; };
 		2599E59579B15C741DAF33D4 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
+		7837617594134A791A918676 /* Pods_vuadungcu_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7116F7A2895789BD0E5241D0 /* Pods_vuadungcu_app.framework */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		108108A12E7258CE00A5E251 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		108108A22E7258CE00A5E251 /* GoogleService-Info-dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-dev.plist"; sourceTree = "<group>"; };
 		1095359F2E70284700BAED4B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		109535A12E70284700BAED4B /* Images.xcassets 16-08-34-794.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images.xcassets 16-08-34-794.xcassets"; sourceTree = "<group>"; };
 		109535A62E7028B200BAED4B /* BootSplash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BootSplash.storyboard; sourceTree = "<group>"; };
 		109535A72E7028B200BAED4B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* com.vuadungcuapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = com.vuadungcuapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = com.vuadungcuapp/Info.plist; sourceTree = "<group>"; };
-		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = com.vuadungcuapp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		3B4392A12AC88292D35C810B /* Pods-com.vuadungcuapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.vuadungcuapp.debug.xcconfig"; path = "Target Support Files/Pods-com.vuadungcuapp/Pods-com.vuadungcuapp.debug.xcconfig"; sourceTree = "<group>"; };
-		5709B34CF0A7D63546082F79 /* Pods-com.vuadungcuapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.vuadungcuapp.release.xcconfig"; path = "Target Support Files/Pods-com.vuadungcuapp/Pods-com.vuadungcuapp.release.xcconfig"; sourceTree = "<group>"; };
-		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = com.vuadungcuapp/AppDelegate.swift; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = com.vuadungcuapp/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D336B43E69916DE7976BD9DE /* Pods_com_vuadungcuapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_com_vuadungcuapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* vuadungcu_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vuadungcu_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = vuadungcu_app/Info.plist; sourceTree = "<group>"; };
+		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = vuadungcu_app/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		2779FFB633DC66E0C9AF7DC3 /* Pods-vuadungcu_app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vuadungcu_app.release.xcconfig"; path = "Target Support Files/Pods-vuadungcu_app/Pods-vuadungcu_app.release.xcconfig"; sourceTree = "<group>"; };
+		3B4392A12AC88292D35C810B /* Pods-vuadungcu_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vuadungcu_app.debug.xcconfig"; path = "Target Support Files/Pods-vuadungcu_app/Pods-vuadungcu_app.debug.xcconfig"; sourceTree = "<group>"; };
+		5709B34CF0A7D63546082F79 /* Pods-vuadungcu_app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vuadungcu_app.release.xcconfig"; path = "Target Support Files/Pods-vuadungcu_app/Pods-vuadungcu_app.release.xcconfig"; sourceTree = "<group>"; };
+		593783B6C84F4AA0E2678CDD /* Pods-vuadungcu_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vuadungcu_app.debug.xcconfig"; path = "Target Support Files/Pods-vuadungcu_app/Pods-vuadungcu_app.debug.xcconfig"; sourceTree = "<group>"; };
+		7116F7A2895789BD0E5241D0 /* Pods_vuadungcu_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vuadungcu_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = vuadungcu_app/AppDelegate.swift; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = vuadungcu_app/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -38,33 +42,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F4D287A3047C4707BEA75CE /* Pods_com_vuadungcuapp.framework in Frameworks */,
+				7837617594134A791A918676 /* Pods_vuadungcu_app.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		13B07FAE1A68108700A75B9A /* com.vuadungcuapp */ = {
+		13B07FAE1A68108700A75B9A /* vuadungcu_app */ = {
 			isa = PBXGroup;
 			children = (
+				108108A12E7258CE00A5E251 /* GoogleService-Info.plist */,
+				108108A22E7258CE00A5E251 /* GoogleService-Info-dev.plist */,
 				109535A62E7028B200BAED4B /* BootSplash.storyboard */,
 				109535A72E7028B200BAED4B /* Images.xcassets */,
 				1095359F2E70284700BAED4B /* Colors.xcassets */,
-				109535A12E70284700BAED4B /* Images.xcassets 16-08-34-794.xcassets */,
 				761780EC2CA45674006654EE /* AppDelegate.swift */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
 			);
-			name = com.vuadungcuapp;
+			name = vuadungcu_app;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				D336B43E69916DE7976BD9DE /* Pods_com_vuadungcuapp.framework */,
+				7116F7A2895789BD0E5241D0 /* Pods_vuadungcu_app.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -79,7 +84,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* com.vuadungcuapp */,
+				13B07FAE1A68108700A75B9A /* vuadungcu_app */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
@@ -93,7 +98,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* com.vuadungcuapp.app */,
+				13B07F961A680F5B00A75B9A /* vuadungcu_app.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,8 +106,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-com.vuadungcuapp.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-com.vuadungcuapp.release.xcconfig */,
+				3B4392A12AC88292D35C810B /* Pods-vuadungcu_app.debug.xcconfig */,
+				5709B34CF0A7D63546082F79 /* Pods-vuadungcu_app.release.xcconfig */,
+				593783B6C84F4AA0E2678CDD /* Pods-vuadungcu_app.debug.xcconfig */,
+				2779FFB633DC66E0C9AF7DC3 /* Pods-vuadungcu_app.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -110,9 +117,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13B07F861A680F5B00A75B9A /* com.vuadungcuapp */ = {
+		13B07F861A680F5B00A75B9A /* vuadungcu_app */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "com.vuadungcuapp" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "vuadungcu_app" */;
 			buildPhases = (
 				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
@@ -127,9 +134,9 @@
 			);
 			dependencies = (
 			);
-			name = com.vuadungcuapp;
-			productName = com.vuadungcuapp;
-			productReference = 13B07F961A680F5B00A75B9A /* com.vuadungcuapp.app */;
+			name = vuadungcu_app;
+			productName = vuadungcu_app;
+			productReference = 13B07F961A680F5B00A75B9A /* vuadungcu_app.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -158,7 +165,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* com.vuadungcuapp */,
+				13B07F861A680F5B00A75B9A /* vuadungcu_app */,
 			);
 		};
 /* End PBXProject section */
@@ -168,7 +175,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				109535A32E70284700BAED4B /* Images.xcassets 16-08-34-794.xcassets in Resources */,
+				108108A32E7258CE00A5E251 /* GoogleService-Info-dev.plist in Resources */,
+				108108A42E7258CE00A5E251 /* GoogleService-Info.plist in Resources */,
 				109535A42E70284700BAED4B /* Colors.xcassets in Resources */,
 				109535A82E7028B200BAED4B /* Images.xcassets in Resources */,
 				109535A92E7028B200BAED4B /* BootSplash.storyboard in Resources */,
@@ -202,15 +210,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-com.vuadungcuapp/Pods-com.vuadungcuapp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-vuadungcu_app/Pods-vuadungcu_app-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-com.vuadungcuapp/Pods-com.vuadungcuapp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-vuadungcu_app/Pods-vuadungcu_app-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-com.vuadungcuapp/Pods-com.vuadungcuapp-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-vuadungcu_app/Pods-vuadungcu_app-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B333C48F5CB3D4C713887781 /* [CP-User] [RNFB] Core Configuration */ = {
@@ -241,7 +249,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-com.vuadungcuapp-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-vuadungcu_app-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -254,15 +262,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-com.vuadungcuapp/Pods-com.vuadungcuapp-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-vuadungcu_app/Pods-vuadungcu_app-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-com.vuadungcuapp/Pods-com.vuadungcuapp-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-vuadungcu_app/Pods-vuadungcu_app-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-com.vuadungcuapp/Pods-com.vuadungcuapp-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-vuadungcu_app/Pods-vuadungcu_app-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -281,15 +289,18 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-com.vuadungcuapp.debug.xcconfig */;
+			baseConfigurationReference = 593783B6C84F4AA0E2678CDD /* Pods-vuadungcu_app.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 46;
-				DEVELOPMENT_TEAM = NYDWXQR648;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = NYDWXQR648;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = com.vuadungcuapp/Info.plist;
+				INFOPLIST_FILE = vuadungcu_app/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Vua Dụng Cụ";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
@@ -304,7 +315,9 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vuadungcuapp;
-				PRODUCT_NAME = com.vuadungcuapp;
+				PRODUCT_NAME = vuadungcu_app;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = vuadungcuapp_provisioning_profile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -313,14 +326,17 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-com.vuadungcuapp.release.xcconfig */;
+			baseConfigurationReference = 2779FFB633DC66E0C9AF7DC3 /* Pods-vuadungcu_app.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 46;
-				DEVELOPMENT_TEAM = NYDWXQR648;
-				INFOPLIST_FILE = com.vuadungcuapp/Info.plist;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = NYDWXQR648;
+				INFOPLIST_FILE = vuadungcu_app/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Vua Dụng Cụ";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
@@ -335,7 +351,9 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vuadungcuapp;
-				PRODUCT_NAME = com.vuadungcuapp;
+				PRODUCT_NAME = vuadungcu_app;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = vuadungcuapp_provisioning_profile;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -514,7 +532,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "com.vuadungcuapp" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "vuadungcu_app" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,

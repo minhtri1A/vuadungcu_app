@@ -49,8 +49,6 @@ class Service {
 
         console.log('token ', data);
 
-        console.log('b');
-
         if (data && data?.access_token && parseInt(data?.timeout || '0') > Date.now()) {
             // neu token chua het han gan token cho proerty app
             this.setAccessToken(data.access_token);
@@ -122,9 +120,12 @@ class Service {
                 cancelToken: this.cancelRequest !== undefined ? this.cancelRequest.token : null,
             })
             .then((response: any) => {
+                console.log('then');
                 return response.data;
             })
             .catch((error: any) => {
+                console.log('error', error);
+
                 if (error.message === undefined) {
                 }
                 return Promise.reject(error?.response?.data);
@@ -157,7 +158,9 @@ class Service {
             grant_type: this.granType,
         };
         try {
+            console.log('fetch token app');
             const response = await this.post('/oauth', data);
+            console.log('response token ', response);
             this.setTokenLocal(response);
             return response;
         } catch (error) {
