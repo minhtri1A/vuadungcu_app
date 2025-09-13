@@ -1,16 +1,15 @@
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import Header from 'components/Header';
+import Header from 'components/Header2';
 import IconButton from 'components/IconButton';
+import Text from 'components/Text';
 import { Routes } from 'const/index';
 import withAuth from 'hoc/withAuth';
-import { useEventCoinSwr, useEventQrCodeSwr, useInternet, useTheme } from 'hooks';
+import { useEventCoinSwr, useEventQrCodeSwr, useTheme } from 'hooks';
 import useEventQrCodeLogSwrInfinity from 'hooks/swr/eventSwr/useEventQrCodeLogSwrInfinity';
 import { EventCoinInfoResponseType, EventQrCodeInfoResponseType } from 'models';
 import { EventStackParamsList } from 'navigation/type';
-import React, { memo, useState } from 'react';
-import { Animated } from 'react-native';
-import animation from 'theme/animation';
+import React, { memo } from 'react';
 import EventCoin from './components/EventCoint';
 import EventQRCode from './components/EventQRCode';
 
@@ -21,7 +20,6 @@ interface Props {
 const EventScreen = memo(function EventScreen({ navigation }: Props) {
     //hooks
     const { theme } = useTheme();
-    const isInternet = useInternet();
     const route = useRoute<RouteProp<EventStackParamsList, 'EventScreen'>>();
     //swr
     const eventQrCodeSwr = useEventQrCodeSwr<EventQrCodeInfoResponseType>('info');
@@ -35,13 +33,6 @@ const EventScreen = memo(function EventScreen({ navigation }: Props) {
         eventType === 'qr_code' ? 'Quét mã tích điểm' : eventType === 'coin' ? 'NTL xu' : undefined;
 
     //animation
-    const [initialValue] = useState(new Animated.Value(0));
-    const colorIcon = animation(
-        initialValue,
-        [0, 100],
-        [theme.colors.grey_['1'], theme.colors.transparent]
-    );
-
     const gotoScoreDetailScreen = () => {
         navigation.navigate(Routes.NAVIGATION_TO_EVENT_DETAIL_SCREEN, { type: eventType });
     };
@@ -49,11 +40,12 @@ const EventScreen = memo(function EventScreen({ navigation }: Props) {
     return (
         <>
             <Header
-                centerComponent={{
-                    text: textTitle,
-                    style: { color: theme.colors.white_[10], fontSize: theme.typography.title2 },
-                }}
-                rightComponent={
+                center={
+                    <Text size={'title2'} ta="center">
+                        {textTitle}
+                    </Text>
+                }
+                right={
                     <IconButton
                         type="ionicon"
                         name="help-circle-outline"
@@ -62,9 +54,8 @@ const EventScreen = memo(function EventScreen({ navigation }: Props) {
                         color={theme.colors.white_[10]}
                     />
                 }
-                colorBackIcon={theme.colors.white_[10]}
-                backgroundColor="#f59423"
-                shadow={false}
+                showGoBack
+                bgColor={'#f59423'}
             />
             {/* event */}
             {eventType === 'qr_code' ? (

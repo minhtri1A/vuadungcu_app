@@ -1,16 +1,15 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { captureException, setExtra } from '@sentry/react-native';
 import Button from 'components/Button';
-import Header from 'components/Header';
+import Header from 'components/Header2';
 import IconButton from 'components/IconButton';
 import Loading from 'components/Loading';
 import Text from 'components/Text';
 import TextInput from 'components/TextInput';
 import { Message, Status } from 'const/index';
 import { NAVIGATION_TO_REFERRAL_INFO_SCREEN, NAVIGATION_TO_SCAN_SCREEN } from 'const/routes';
-import { useCustomerSwr, useNavigate, useTheme } from 'hooks';
+import { useCustomerSwr, useTheme } from 'hooks';
 import { SettingStackParamsList } from 'navigation/type';
 import React, { memo, useEffect, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
@@ -28,7 +27,6 @@ const EnterReferralScreen = memo(function EditReferralScreen({ navigation, route
     //hook
     const { theme } = useTheme();
     const styles = useStyles(theme);
-    const navigate = useNavigate();
     //state
     const [code, setCode] = useState('');
     const [name, setName] = useState('');
@@ -109,15 +107,10 @@ const EnterReferralScreen = memo(function EditReferralScreen({ navigation, route
     return (
         <>
             <Header
-                centerComponent={{
-                    text: 'Nhập mã giới thiệu',
-                    style: {
-                        color: theme.colors.slate[900],
-                        fontSize: theme.typography.title2,
-                        alignSelf: 'flex-start',
-                    },
-                }}
-                rightComponent={
+                showGoBack
+                iconGoBackColor={theme.colors.black_[10]}
+                center={<Text size={'title1'}>Nhập mã giới thiệu</Text>}
+                right={
                     <IconButton
                         type="ionicon"
                         name="help-circle-outline"
@@ -126,10 +119,8 @@ const EnterReferralScreen = memo(function EditReferralScreen({ navigation, route
                         color={theme.colors.black_[10]}
                     />
                 }
-                backgroundColor={theme.colors.white_[10]}
-                statusBarProps={{ backgroundColor: theme.colors.main['600'] }}
-                containerStyle={{ borderBottomWidth: 1 }}
-                shadow
+                bgColor={theme.colors.white_[10]}
+                statusBarColor={theme.colors.main['500']}
             />
             {!isEmpty(referred_status) ? (
                 <Text p={'small'} fw="bold">

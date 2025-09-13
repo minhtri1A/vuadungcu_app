@@ -1,6 +1,5 @@
-import { Header, ListItem, SearchBar } from '@rneui/themed';
+import { ListItem, SearchBar } from '@rneui/themed';
 import { filter, toLower } from 'lodash';
-import * as RootNavigation from 'navigation/RootNavigation';
 import React, { memo, useEffect, useState } from 'react';
 import { FlatList, View } from 'react-native';
 import { TabBar, TabView } from 'react-native-tab-view';
@@ -9,11 +8,12 @@ import { removeAccents } from 'utils/helpers';
 // import { RouteProp } from '@react-navigation/native';
 // import { AddressStackParamsList } from 'navigation/type';
 import { StackNavigationProp } from '@react-navigation/stack';
+import Header from 'components/Header2';
 import Text from 'components/Text';
 import { SET_LOCATION_VALUE } from 'features/action';
 import { useAppDispatch, useTheme } from 'hooks';
-import useStyles from './styles';
 import { sendSentryError } from 'utils/storeHelpers';
+import useStyles from './styles';
 1;
 
 interface Props {
@@ -117,7 +117,7 @@ const AddressFormLocation = memo(function AddressFormLocation({ navigation }: Pr
     const renderTabBar = (props: any) => (
         <TabBar
             {...props}
-            renderLabel={({ route }) => <Text>{route.title}</Text>}
+            renderLabel={({ route }: any) => <Text>{route.title}</Text>}
             indicatorStyle={{ backgroundColor: theme.colors.main['600'] }}
             style={{
                 backgroundColor: theme.colors.white_[10],
@@ -196,21 +196,13 @@ const AddressFormLocation = memo(function AddressFormLocation({ navigation }: Pr
     return (
         <View style={{ flex: 1 }}>
             {/* header */}
+
             <Header
-                statusBarProps={{ backgroundColor: theme.colors.main['600'] }}
-                backgroundColor={theme.colors.white_[10]}
-                leftComponent={{
-                    icon: 'arrow-back',
-                    size: theme.typography.title3,
-                    onPress: RootNavigation.goBack,
-                }}
-                centerComponent={{
-                    text: 'Địa chỉ giao hàng',
-                    style: { fontSize: theme.typography.title1, color: theme.colors.black_[10] },
-                }}
-                centerContainerStyle={{ flex: 5, alignItems: 'flex-start' }}
-                leftContainerStyle={{ justifyContent: 'center' }}
-                containerStyle={[theme.styles.shadow1, { zIndex: 1 }]}
+                center={<Text size={'title2'}>Địa chỉ giao hàng</Text>}
+                showGoBack
+                bgColor={theme.colors.white_[10]}
+                iconGoBackColor={theme.colors.black_[10]}
+                statusBarColor={theme.colors.main['500']}
             />
             {/* tab  */}
             <TabView

@@ -1,5 +1,4 @@
 import { StackNavigationProp } from '@react-navigation/stack';
-import Header from 'components/Header';
 import { useCustomerSwr, useTheme } from 'hooks';
 import React, { memo } from 'react';
 import { ScrollView, View } from 'react-native';
@@ -7,6 +6,8 @@ import ExtraInfo from './components/ExtraInfo';
 import PersonalInfo from './components/PersonalInfo';
 import VerifyInfo from './components/VerifyInfo';
 import useStyles from './styles';
+import Header from 'components/Header2';
+import Text from 'components/Text';
 
 interface Props {
     navigation: StackNavigationProp<any, any>;
@@ -22,9 +23,10 @@ export default memo(function AccountScreen({}: Props) {
     return (
         <>
             <Header
-                centerTitle="Tài khoản"
-                backgroundColor={theme.colors.white_[10]}
-                shadow
+                showGoBack
+                iconGoBackColor={theme.colors.black_[10]}
+                center={<Text size={'title1'}>Tài khoản</Text>}
+                bgColor={theme.colors.white_[10]}
                 statusBarColor={theme.colors.main['600']}
             />
             <View style={styles.view_container}>

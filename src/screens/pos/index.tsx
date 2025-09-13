@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Icon } from '@rneui/themed';
-import Header from 'components/Header';
+import Header from 'components/Header2';
 import IconButton from 'components/IconButton';
 import Text from 'components/Text';
 import Tooltip from 'components/Tooltip';
@@ -158,11 +158,12 @@ const PosListScreen = memo(function PosListScreen({}: Props) {
     return (
         <View bg={theme.colors.bgMain} flex={1}>
             <Header
-                centerComponent={{
-                    text: 'Cửa hàng trực tiếp',
-                    style: styles.header_center,
-                }}
-                rightComponent={
+                center={
+                    <Text size={'title2'} ta="center" color={theme.colors.white_[10]}>
+                        Cửa hàng trực tiếp
+                    </Text>
+                }
+                right={
                     <IconButton
                         type="ionicon"
                         name="help-circle-outline"
@@ -171,9 +172,8 @@ const PosListScreen = memo(function PosListScreen({}: Props) {
                         color={theme.colors.white_[10]}
                     />
                 }
-                colorBackIcon={theme.colors.white_[10]}
-                backgroundColor="#f59423"
-                shadow={false}
+                showGoBack
+                bgColor={'#f59423'}
             />
             <FlatList
                 data={posList}

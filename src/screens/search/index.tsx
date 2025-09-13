@@ -4,7 +4,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/core';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Icon, SearchBar } from '@rneui/themed';
-import Header from 'components/Header';
 import IconButton from 'components/IconButton';
 import MiniCart from 'components/MiniCart';
 import PulseIndicator from 'components/Spinner/PulseIndicator';
@@ -30,6 +29,7 @@ import { isEmpty } from 'utils/helpers';
 import ProductSearchItem from './components/ProductSearchItem';
 import { ItemAddToCartListType } from 'hooks/swr/cartSwr/useCartSwr';
 import BottomSheetAddToCartSuccess from 'screens/productdetail/components/BottomSheetAddToCartSuccess';
+import Header from 'components/Header2';
 
 interface Props {
     navigation: StackNavigationProp<any, any>;
@@ -190,10 +190,7 @@ const SearchScreen = memo(function SearchScreen({ navigation }: Props) {
     return (
         <View style={styles.containerSearch}>
             <Header
-                containerStyle={styles.container_header}
-                statusBarProps={{ backgroundColor: theme.colors.main['600'] }}
-                barStyle="dark-content"
-                centerComponent={
+                center={
                     <SearchBar
                         platform={'default'}
                         ref={searchRef}
@@ -225,8 +222,7 @@ const SearchScreen = memo(function SearchScreen({ navigation }: Props) {
                         }
                     />
                 }
-                centerContainerStyle={styles.center_container}
-                rightComponent={
+                right={
                     <View style={styles.view_header_right}>
                         <View position="relative" jC="center">
                             {isListening ? (
@@ -256,9 +252,10 @@ const SearchScreen = memo(function SearchScreen({ navigation }: Props) {
                         />
                     </View>
                 }
-                rightContainerStyle={styles.right_container}
-                leftContainerStyle={styles.left_container}
-                shadow
+                showGoBack={false}
+                iconGoBackColor={theme.colors.black_[10]}
+                bgColor={theme.colors.white_[10]}
+                contentStyle={{ paddingLeft: 0 }}
             />
             <FlatList
                 data={searchText ? products : searchHistory}
@@ -383,7 +380,7 @@ const useStyles = () => {
             elevation: 0,
             borderBottomWidth: 0,
             borderTopWidth: 0,
-            backgroundColor: theme.colors.white_[10],
+            padding: 0,
         },
         input_container: {
             backgroundColor: theme.colors.white_[10],

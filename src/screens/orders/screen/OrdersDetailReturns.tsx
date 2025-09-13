@@ -5,8 +5,7 @@ import { RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Icon } from '@rneui/themed';
 import Divider from 'components/Divider';
-import Header from 'components/Header';
-import IconButton from 'components/IconButton';
+import Header from 'components/Header2';
 import Image from 'components/Image';
 import Text from 'components/Text';
 import Title from 'components/Title';
@@ -25,7 +24,7 @@ interface Props {
     route: RouteProp<OrdersStackParamsList, 'OrdersDetailReturnsScreen'>;
 }
 
-export default memo(function OrdersDetailReturnsScreen({ navigation, route }: Props) {
+export default memo(function OrdersDetailReturnsScreen({ route }: Props) {
     //hook
     const { theme } = useTheme();
     const styles = useStyles(theme);
@@ -47,25 +46,15 @@ export default memo(function OrdersDetailReturnsScreen({ navigation, route }: Pr
     return (
         <>
             <Header
-                centerComponent={{
-                    text: 'Chi tiết đơn trả hàng',
-                    style: {
-                        color: theme.colors.slate[900],
-                        fontSize: theme.typography.title1,
-                    },
-                }}
-                leftComponent={
-                    <IconButton
-                        type="ionicon"
-                        name="arrow-back-outline"
-                        onPress={navigation.goBack}
-                        size={theme.typography.title3}
-                        color={theme.colors.slate[900]}
-                    />
+                center={
+                    <Text size={'title2'} ta="center">
+                        Chi tiết đơn trả hàng
+                    </Text>
                 }
-                backgroundColor={theme.colors.white_[10]}
-                statusBarProps={{ backgroundColor: theme.colors.main['600'] }}
-                shadow={true}
+                showGoBack
+                iconGoBackColor={theme.colors.black_[10]}
+                bgColor={theme.colors.white_[10]}
+                statusBarColor={theme.colors.main[500]}
             />
             {data ? (
                 <ScrollView style={styles.view_container}>
@@ -106,7 +95,7 @@ export default memo(function OrdersDetailReturnsScreen({ navigation, route }: Pr
                                         <TouchableOpacity
                                             onPress={copyOrderIdToClipboard(data.memo_id)}
                                         >
-                                            <Text color={colors.cyan['500']}>SAO CHÉP</Text>
+                                            <Text color={theme.colors.cyan['500']}>SAO CHÉP</Text>
                                         </TouchableOpacity>
                                     </View>
                                 </View>

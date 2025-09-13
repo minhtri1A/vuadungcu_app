@@ -1,13 +1,12 @@
-import { useTheme } from 'hooks';
-import React, { memo } from 'react';
-import { StyleSheet } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import Button from 'components/Button';
-import Header from 'components/Header';
-import IconButton from 'components/IconButton';
+import Header from 'components/Header2';
 import Text from 'components/Text';
 import View from 'components/View';
 import { NAVIGATION_DELETE_ACCOUNT_CONFIRM_SCREEN } from 'const/routes';
+import { useTheme } from 'hooks';
+import React, { memo } from 'react';
+import { StyleSheet } from 'react-native';
 import { themeType } from 'theme';
 
 interface Props {
@@ -21,26 +20,15 @@ export default memo(function DeleteAccountScreen({ navigation }: Props) {
     return (
         <>
             <Header
-                leftComponent={
-                    <IconButton
-                        type="ionicon"
-                        name="arrow-back-outline"
-                        onPress={navigation.goBack}
-                        size={theme.typography.title3}
-                        color={theme.colors.slate[900]}
-                    />
+                center={
+                    <Text size={'title2'} ta="center">
+                        Yêu cầu xoá tài khoản
+                    </Text>
                 }
-                centerComponent={{
-                    text: 'Yêu cầu xoá tài khoản',
-                    style: {
-                        color: theme.colors.slate[900],
-                        fontSize: theme.typography.title2,
-                        // alignSelf: 'flex-start',
-                    },
-                }}
-                backgroundColor={theme.colors.white_[10]}
-                statusBarProps={{ backgroundColor: theme.colors.main['600'] }}
-                shadow
+                showGoBack
+                iconGoBackColor={theme.colors.black_[10]}
+                bgColor={theme.colors.white_[10]}
+                statusBarColor={theme.colors.main[500]}
             />
             {/* body */}
             <View style={styles.view_body}>

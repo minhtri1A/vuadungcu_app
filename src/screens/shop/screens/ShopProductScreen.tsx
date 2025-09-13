@@ -1,11 +1,9 @@
 /* eslint-disable react-native/no-inline-styles */
-/* eslint-disable react-hooks/exhaustive-deps */
 import { RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Icon } from '@rneui/themed';
 import Button from 'components/Button';
-import Header from 'components/Header';
-import IconButton from 'components/IconButton';
+import Header from 'components/Header2';
 import ListProductsWrapper from 'components/ListProductsWrapper';
 import LoadingFetchAPI from 'components/LoadingFetchAPI';
 import Text from 'components/Text';
@@ -24,7 +22,7 @@ interface Props {
 
 //trang hiên thị danh sách sản phẩm của shop với các params
 
-export default memo(function ShopProductScreen({ navigation, route }: Props) {
+export default memo(function ShopProductScreen({ route }: Props) {
     //hook
     const {
         theme: { colors, typography, spacings, dimens },
@@ -48,7 +46,7 @@ export default memo(function ShopProductScreen({ navigation, route }: Props) {
             sort,
             keyword,
             seller_uuid,
-            discount,
+            discount: discount ? 'Y' : 'N',
         },
         { revalidateOnMount: true }
     );
@@ -139,25 +137,12 @@ export default memo(function ShopProductScreen({ navigation, route }: Props) {
     return (
         <>
             <Header
-                leftComponent={
-                    <IconButton
-                        type="ionicon"
-                        name="arrow-back-outline"
-                        onPress={navigation.goBack}
-                        size={typography.title4}
-                        color={colors.white_[10]}
-                        activeOpacity={0.5}
-                    />
+                center={
+                    <Text size={'title2'} ta="center" color={colors.white_[10]}>
+                        {title}
+                    </Text>
                 }
-                centerComponent={
-                    <TouchableOpacity containerStyle={styles.touch_container_search}>
-                        <Text color={colors.slate[900]}>{title}</Text>
-                    </TouchableOpacity>
-                }
-                backgroundColor={colors.main['600']}
-                centerContainerStyle={styles.header_center_container}
-                leftContainerStyle={styles.header_left_container}
-                rightContainerStyle={styles.header_right_container}
+                showGoBack
             />
             {renderListHeaderSection()}
             <ListProductsWrapper

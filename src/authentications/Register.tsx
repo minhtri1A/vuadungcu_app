@@ -1,6 +1,5 @@
 import { Icon } from '@rneui/themed';
 import Button from 'components/Button';
-import Header from 'components/Header';
 import Loading from 'components/Loading';
 import Text from 'components/Text';
 import TextInput from 'components/TextInput';
@@ -19,6 +18,7 @@ import { showMessage } from 'react-native-flash-message';
 import * as Yup from 'yup';
 import { Message } from '../const';
 import useStyles from './styles';
+import Header from 'components/Header2';
 
 /* eslint-disable react-hooks/exhaustive-deps */
 
@@ -88,8 +88,8 @@ const Register = memo(function Register() {
         <View style={styles.view_registerContainer}>
             {/*Header*/}
             <Header
-                colors={['white', 'white']}
-                leftComponent={
+                bgColor={theme.colors.white_[10]}
+                left={
                     <Icon
                         type={'ionicon'}
                         name="close-outline"
@@ -98,8 +98,8 @@ const Register = memo(function Register() {
                         size={theme.typography.title4}
                     />
                 }
-                centerComponent={
-                    <Text size={'title2'} color={theme.colors.main['600']}>
+                center={
+                    <Text size={'title2'} ta="center" color={theme.colors.main['600']}>
                         Đăng ký
                     </Text>
                 }

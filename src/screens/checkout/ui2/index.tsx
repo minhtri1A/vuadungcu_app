@@ -1,8 +1,7 @@
 import { Icon } from '@rneui/themed';
 import Alert from 'components/Alert';
 import Button from 'components/Button';
-import Header from 'components/Header';
-import IconButton from 'components/IconButton';
+import Header from 'components/Header2';
 import Image from 'components/Image';
 import ThreeDot from 'components/Spinner/ThreeDot';
 import Switch from 'components/Switch';
@@ -10,6 +9,7 @@ import Text from 'components/Text';
 import Touch from 'components/Touch';
 import View from 'components/View';
 import { NAVIGATION_ACCOUNT_STACK, NAVIGATION_EDIT_VERIFY_SCREEN } from 'const/routes';
+import { SET_GIFTS_ORDER } from 'features/action';
 import withAuth from 'hoc/withAuth';
 import {
     useAppDispatch,
@@ -34,7 +34,6 @@ import { currencyFormat, isEmpty } from 'utils/helpers';
 import showLoadingApp from 'utils/showLoadingApp';
 import BottomSheetInvoice from './components/BottomSheetInvoice';
 import CheckoutSellerSection from './components/CheckoutSellerSection';
-import { SET_GIFTS_ORDER } from 'features/action';
 /* eslint-disable react-hooks/exhaustive-deps */
 
 interface Props {}
@@ -287,24 +286,14 @@ const CheckoutScreen = memo(function CheckoutScreen({}: Props) {
     return (
         <View style={styles.container}>
             <Header
-                backgroundColor={theme.colors.white_[10]}
-                centerComponent={{
-                    text: 'Thanh Toán',
-                    style: { fontSize: theme.typography.title2, color: theme.colors.black_[10] },
-                }}
-                leftComponent={
-                    <IconButton
-                        type="ionicon"
-                        name="arrow-back-outline"
-                        color={theme.colors.black_[10]}
-                        onPress={navigate.GO_BACK_ROUTE}
-                        size={theme.typography.title4}
-                    />
+                center={
+                    <Text size={'title2'} ta="center">
+                        Thanh Toán
+                    </Text>
                 }
-                leftContainerStyle={styles.header_left}
-                centerContainerStyle={styles.header_center}
-                rightContainerStyle={styles.header_right}
-                shadow
+                showGoBack
+                iconGoBackColor={theme.colors.black_[10]}
+                bgColor={theme.colors.white_[10]}
             />
 
             {/* body */}

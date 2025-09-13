@@ -1,7 +1,5 @@
-/* eslint-disable radix */
-/* eslint-disable react-hooks/exhaustive-deps */
 import { RouteProp } from '@react-navigation/native';
-import Header from 'components/Header';
+import Header from 'components/Header2';
 import LoadingFetchAPI from 'components/LoadingFetchAPI';
 import Text from 'components/Text';
 import View from 'components/View';
@@ -90,12 +88,15 @@ export default function NTLOrderDetailScreen({ route }: Props) {
     return (
         <View>
             <Header
-                centerTitle={`Đơn hàng(${posTicketDetail?.ticketid || ''})`}
-                colorBackIcon="black"
-                backgroundColor={theme.colors.white_[10]}
-                shadow={true}
-                statusBarColor={theme.colors.main['600']}
-                centerTitleSize={'title2'}
+                center={
+                    <Text size={'title2'} ta="center">
+                        {`Đơn hàng(${posTicketDetail?.ticketid || ''})`}
+                    </Text>
+                }
+                showGoBack
+                iconGoBackColor={theme.colors.black_[10]}
+                bgColor={theme.colors.white_[10]}
+                statusBarColor={theme.colors.main[500]}
             />
             {isValidating ? (
                 <LoadingFetchAPI

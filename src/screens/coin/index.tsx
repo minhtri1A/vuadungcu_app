@@ -1,6 +1,6 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Icon } from '@rneui/themed';
-import Header from 'components/Header';
+import Header from 'components/Header2';
 import IconButton from 'components/IconButton';
 import Image from 'components/Image';
 import Text from 'components/Text';
@@ -70,11 +70,12 @@ const CoinScreen = memo(function CoinScreen({}: Props) {
     return (
         <>
             <Header
-                centerComponent={{
-                    text: 'Xu dụng cụ',
-                    style: { color: theme.colors.white_[10], fontSize: theme.typography.title2 },
-                }}
-                rightComponent={
+                center={
+                    <Text size={'title2'} ta="center">
+                        Xu dụng cụ
+                    </Text>
+                }
+                right={
                     <IconButton
                         type="ionicon"
                         name="help-circle-outline"
@@ -83,9 +84,9 @@ const CoinScreen = memo(function CoinScreen({}: Props) {
                         color={theme.colors.white_[10]}
                     />
                 }
-                colorBackIcon={theme.colors.white_[10]}
-                backgroundColor="#f59423"
-                shadow={false}
+                showGoBack
+                iconGoBackColor={theme.colors.black_[10]}
+                bgColor={'#f59423'}
             />
             {/* Coin info */}
             <View style={styles.view_topContainer}>

@@ -9,7 +9,7 @@ import {
     NAVIGATION_TAB_NAV,
 } from 'const/routes';
 import withAuth from 'hoc/withAuth';
-import { useNavigate, useNavigation, useTheme } from 'hooks';
+import { useNavigation, useTheme } from 'hooks';
 import { reset } from 'navigation/RootNavigation';
 import React, { memo } from 'react';
 import { StyleSheet } from 'react-native';
@@ -23,7 +23,6 @@ const OrderSuccessScreen = memo(function OrderSuccessScreen({}: Props) {
     //hook
     const { theme } = useTheme();
     const styles = useStyles(theme);
-    const navigate = useNavigate();
     const navigation = useNavigation();
     //swr
 

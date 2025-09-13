@@ -1,7 +1,6 @@
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { Icon } from '@rneui/themed';
 import AfterInteractions from 'components/AfterInteractions';
-import Header from 'components/Header';
 import LoadingFetchAPI from 'components/LoadingFetchAPI';
 import Text from 'components/Text';
 import View from 'components/View';
@@ -17,6 +16,7 @@ import { isEmpty } from 'utils/helpers';
 import ReviewItem from '../components/ReviewItem';
 import ReviewsSkeleton from '../skeletons/ReviewsSkeleton';
 import useStyles from './../styles';
+import Header from 'components/Header2';
 
 interface Props {}
 
@@ -144,15 +144,14 @@ const ReviewScreen = memo(function ReviewScreen({}: Props) {
     return (
         <View flex={1} bg={colors.white_[10]}>
             <Header
-                centerComponent={{
-                    text: 'Đánh giá sản phẩm',
-                    style: {
-                        color: colors.slate[900],
-                        fontSize: typography.title1,
-                    },
-                }}
-                backgroundColor={colors.white_[10]}
-                shadow
+                center={
+                    <Text size={'title2'} ta="center">
+                        Đánh giá sản phẩm
+                    </Text>
+                }
+                showGoBack
+                iconGoBackColor={colors.black_[10]}
+                bgColor={colors.white_[10]}
             />
             <AfterInteractions>
                 <FlatList

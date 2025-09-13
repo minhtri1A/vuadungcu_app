@@ -2,28 +2,25 @@
 import auth from '@react-native-firebase/auth';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Icon } from '@rneui/themed';
-import Header from 'components/Header';
-import IconButton from 'components/IconButton';
+import Header from 'components/Header2';
 import Switch from 'components/Switch';
+import Text from 'components/Text';
 import Title from 'components/Title';
 import { GoogleSignin, appleAuthConfig } from 'config';
 import { useCustomerSwr, useTheme } from 'hooks';
 import { isEmpty } from 'lodash';
 import React, { memo, useEffect } from 'react';
-import { StyleSheet } from 'react-native';
 import Config from 'react-native-config';
 import { AccessToken, LoginManager, Settings } from 'react-native-fbsdk-next';
-import { themeType } from 'theme';
 import { sendSentryError } from 'utils/storeHelpers';
 
 interface Props {
     navigation: StackNavigationProp<any, any>;
 }
 
-export default memo(function SocialScreen({ navigation }: Props) {
+export default memo(function SocialScreen({}: Props) {
     //hook
     const { theme } = useTheme();
-    const styles = useStyles(theme);
     //swr
     const {
         customers: { id_google, id_apple, id_facebook, username },
@@ -122,23 +119,14 @@ export default memo(function SocialScreen({ navigation }: Props) {
     return (
         <>
             <Header
-                leftComponent={
-                    <IconButton
-                        type="ionicon"
-                        name="arrow-back-outline"
-                        onPress={navigation.goBack}
-                        color={theme.colors.slate[900]}
-                    />
+                center={
+                    <Text size={'title2'} ta="center">
+                        Liên kết mạng xã hội
+                    </Text>
                 }
-                centerComponent={{
-                    text: 'Liên kết mạng xã hội',
-                    style: {
-                        color: theme.colors.slate[900],
-                        fontSize: theme.typography.title1,
-                    },
-                }}
-                backgroundColor={theme.colors.white_[10]}
-                shadow
+                showGoBack
+                iconGoBackColor={theme.colors.black_[10]}
+                bgColor={theme.colors.white_[10]}
                 statusBarColor={theme.colors.main['600']}
             />
             {/* facebook */}
@@ -216,11 +204,3 @@ export default memo(function SocialScreen({ navigation }: Props) {
         </>
     );
 });
-
-const useStyles = (theme: themeType) =>
-    StyleSheet.create({
-        list_containerStyle: {
-            justifyContent: 'space-between',
-            padding: theme.spacings.medium,
-        },
-    });

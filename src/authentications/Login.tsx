@@ -1,7 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { RouteProp, useFocusEffect } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import Header from 'components/Header';
 import Image from 'components/Image';
 import Loading from 'components/Loading';
 import Text from 'components/Text';
@@ -24,6 +23,7 @@ import SigninUser from './SigninUser';
 import useStyles from './styles';
 import Touch from 'components/Touch';
 import { NAVIGATION_TO_REGISTER_SCREEN } from 'const/routes';
+import Header from 'components/Header2';
 /* eslint-disable react-hooks/exhaustive-deps */
 
 interface Props {
@@ -102,7 +102,7 @@ const Login = memo(({ navigation }: Props) => {
         <View style={styles.view_loginContainer}>
             <Loading visible={statusSignin === Status.LOADING} text={'Đang xử lý...'} />
             <Header
-                leftComponent={
+                left={
                     <Icon
                         name="close-outline"
                         color={theme.colors.main['600']}
@@ -110,7 +110,8 @@ const Login = memo(({ navigation }: Props) => {
                         size={theme.typography.title4}
                     />
                 }
-                backgroundColor={theme.colors.white_[10]}
+                bgColor={theme.colors.white_[10]}
+                isShadow={false}
             />
             {/* end-loading */}
             <ScrollView

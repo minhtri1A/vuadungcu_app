@@ -1,5 +1,4 @@
 import { RouteProp } from '@react-navigation/native';
-import Header from 'components/Header';
 import { NewsStackParamsList } from 'navigation/type';
 import React, { memo, useEffect, useState } from 'react';
 // eslint-disable-next-line no-unused-vars
@@ -29,6 +28,7 @@ import WebView from 'react-native-webview';
 import { calculatorBetweenTwoTime, isEmpty } from 'utils/helpers';
 import useStyles from '../styles';
 import { sendSentryError } from 'utils/storeHelpers';
+import Header from 'components/Header2';
 
 interface Props {
     // navigation: NativeStackScreenProps<ProductStackParamsList, 'ProductScreen'>;
@@ -112,11 +112,14 @@ const NewsDetailScreen = memo(function NewsDetailScreen({ route }: Props) {
     return (
         <View style={{ flex: 1 }}>
             <Header
-                centerContainerStyle={{ flex: 0.8 }}
-                rightContainerStyle={{ flex: 0.1 }}
-                centerComponent={<Text size="title1">{category_name}</Text>}
-                backgroundColor={colors.white_[10]}
-                shadow
+                center={
+                    <Text size={'title2'} ta="center">
+                        {category_name}
+                    </Text>
+                }
+                showGoBack
+                iconGoBackColor={colors.black_[10]}
+                bgColor={colors.white_[10]}
             />
             <AfterInteractions>
                 {loadingInit === Status.LOADING ? (

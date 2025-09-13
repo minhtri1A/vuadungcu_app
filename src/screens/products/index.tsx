@@ -1,7 +1,5 @@
-/* eslint-disable radix */
 import { RouteProp } from '@react-navigation/native';
 import Disconnect from 'components/Disconnect';
-import Header from 'components/Header';
 import ListProductsWrapper from 'components/ListProductsWrapper';
 import LoadingFetchAPI from 'components/LoadingFetchAPI';
 import MiniCart from 'components/MiniCart';
@@ -12,7 +10,6 @@ import { FlatList } from 'react-native';
 import Categories from './components/Categories';
 import Filters from './components/Filters';
 import useStyles from './styles';
-// eslint-disable-next-line no-unused-vars
 import { useScrollToTop } from '@react-navigation/native';
 import AfterInteractions from 'components/AfterInteractions';
 import Text from 'components/Text';
@@ -28,6 +25,7 @@ import { isEmpty } from 'utils/helpers';
 import Brands from './components/Brands';
 import CategoriesSekeleton from './skeleton/CategoriesSekeleton';
 import ProductsSkeleton from './skeleton/ProductsSkeleton';
+import Header from 'components/Header2';
 
 interface Props {
     // navigation: NativeStackScreenProps<ProductStackParamsList, 'ProductScreen'>;
@@ -143,27 +141,16 @@ const ProductScreen = memo(function ProductScreen(props: Props) {
 
     if (!isInternet) {
         return (
-            <View style={{ flex: 1 }}>
-                <Header
-                    centerComponent={
-                        <ViewSearchTextInput
-                            textInputCenter={
-                                route.params?.search !== undefined ? route.params?.search : null
-                            }
-                        />
-                    }
-                    centerContainerStyle={{ flex: 29 }}
-                    rightComponent={<MiniCart size={theme.typography.title3} />}
-                    rightContainerStyle={{ flex: 3 }}
-                />
+            <View flex={1}>
+                <Header />
                 <Disconnect reConnectedInternetProps={reConnectedInternet} height={'100%'} />
             </View>
         );
     }
 
     return (
-        <View style={{ flex: 1 }}>
-            <Header
+        <View flex={1}>
+            {/* <Header
                 centerComponent={
                     <ViewSearchTextInput
                         textInputCenter={
@@ -176,6 +163,18 @@ const ProductScreen = memo(function ProductScreen(props: Props) {
                 rightContainerStyle={{ flex: 0.13 }}
                 rightComponent={<MiniCart />}
                 colorBackIcon={theme.colors.white_[10]}
+            /> */}
+            <Header
+                showGoBack
+                center={
+                    <ViewSearchTextInput
+                        textInputCenter={
+                            route.params?.search !== undefined ? route.params?.search : null
+                        }
+                    />
+                }
+                right={<MiniCart />}
+                // bgColor={theme.colors.white_[10]}
             />
             <AfterInteractions style={styles.view_body}>
                 {/* filter  */}

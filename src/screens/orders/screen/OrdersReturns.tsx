@@ -4,8 +4,7 @@ import { RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { CheckBox } from '@rneui/themed';
 import Button from 'components/Button';
-import Header from 'components/Header';
-import IconButton from 'components/IconButton';
+import Header from 'components/Header2';
 import Image from 'components/Image';
 import Loading from 'components/Loading';
 import Text from 'components/Text';
@@ -179,26 +178,17 @@ export default memo(function OrdersReturnsScreen({ navigation, route }: Props) {
     return (
         <>
             <Header
-                centerComponent={{
-                    text: 'Yêu cầu trả hàng',
-                    style: {
-                        color: theme.colors.slate[900],
-                        fontSize: theme.typography.title1,
-                    },
-                }}
-                leftComponent={
-                    <IconButton
-                        type="ionicon"
-                        name="arrow-back-outline"
-                        onPress={navigation.goBack}
-                        size={theme.typography.title3}
-                        color={theme.colors.slate[900]}
-                    />
+                center={
+                    <Text size={'title2'} ta="center">
+                        Yêu cầu trả hàng
+                    </Text>
                 }
-                backgroundColor={theme.colors.white_[10]}
-                statusBarProps={{ backgroundColor: theme.colors.main['600'] }}
-                containerStyle={{ borderBottomWidth: 1 }}
+                showGoBack
+                iconGoBackColor={theme.colors.black_[10]}
+                bgColor={theme.colors.white_[10]}
+                statusBarColor={theme.colors.main[500]}
             />
+
             <View flex={1}>
                 {/* item */}
                 <View flex={1}>

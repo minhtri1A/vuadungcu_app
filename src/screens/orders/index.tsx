@@ -6,7 +6,6 @@ import { Icon, Tab, TabView } from '@rneui/themed';
 import AfterInteractions from 'components/AfterInteractions';
 import Button from 'components/Button';
 import Divider from 'components/Divider';
-import Header from 'components/Header';
 import Image from 'components/Image';
 import Loading from 'components/Loading';
 import LoadingFetchAPI from 'components/LoadingFetchAPI';
@@ -34,6 +33,7 @@ import { themeType } from 'theme';
 import { currencyFormat } from 'utils/helpers';
 import OrderSellerSection from './components/OrderSellerSection';
 import ReviewHistory from './components/ReviewHistory';
+import Header from 'components/Header2';
 
 interface Props {
     navigation: StackNavigationProp<any, any>;
@@ -325,7 +325,16 @@ const OrdersScreen = memo(function OrdersScreen({ navigation }: Props) {
 
     return (
         <>
-            <Header centerTitle="Đơn hàng" backgroundColor={theme.colors.white_[10]} />
+            <Header
+                center={
+                    <Text size={'title2'} ta="center">
+                        Đơn hàng
+                    </Text>
+                }
+                showGoBack
+                iconGoBackColor={theme.colors.black_[10]}
+                bgColor={theme.colors.white_[10]}
+            />
             {/* tabs */}
             <View flex={1}>
                 <Tab

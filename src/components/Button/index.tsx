@@ -97,7 +97,7 @@ const Button = memo((props: ButtonCustomProps) => {
 
 const useStyles = (props: ButtonCustomProps, theme: ReturnType<typeof useTheme>['theme']) => {
     const {
-        bgColor = theme.colors.main['600'],
+        bgColor = theme.colors.main['500'],
         type = 'solid',
         size = 'md',
         minWidth,

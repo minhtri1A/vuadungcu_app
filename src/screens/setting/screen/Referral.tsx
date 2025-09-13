@@ -5,7 +5,6 @@ import { StyleSheet } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 // eslint-disable-next-line no-unused-vars
 import Clipboard from '@react-native-clipboard/clipboard';
-import Header from 'components/Header';
 import IconButton from 'components/IconButton';
 import Text from 'components/Text';
 import View from 'components/View';
@@ -22,12 +21,13 @@ import useSWR from 'swr';
 import { themeType } from 'theme';
 import { isEmpty } from 'utils/helpers';
 import { sendSentryError } from 'utils/storeHelpers';
+import Header from 'components/Header2';
 
 interface Props {
     navigation: StackNavigationProp<any, any>;
 }
 
-export default memo(function ReferralScreen({ navigation }: Props) {
+export default memo(function ReferralScreen({}: Props) {
     //hooks
     const { theme } = useTheme();
     const styles = useStyles(theme);
@@ -96,27 +96,15 @@ export default memo(function ReferralScreen({ navigation }: Props) {
     return (
         <>
             <Header
-                leftComponent={
-                    <IconButton
-                        type="ionicon"
-                        name="arrow-back-outline"
-                        onPress={navigation.goBack}
-                        size={theme.typography.title3}
-                        color={theme.colors.slate[900]}
-                    />
+                center={
+                    <Text size={'title2'} ta="center">
+                        Chia sẻ ứng dụng tích xu
+                    </Text>
                 }
-                centerComponent={{
-                    text: 'Chia sẻ ứng dụng tích xu',
-                    style: {
-                        color: theme.colors.slate[900],
-                        fontSize: theme.typography.title2,
-                        // alignSelf: 'flex-start',
-                    },
-                }}
-                backgroundColor={theme.colors.white_[10]}
-                statusBarProps={{ backgroundColor: theme.colors.main['600'] }}
-                containerStyle={{ borderBottomWidth: 1 }}
-                shadow
+                showGoBack
+                iconGoBackColor={theme.colors.black_[10]}
+                bgColor={theme.colors.white_[10]}
+                statusBarColor={theme.colors.main[500]}
             />
             <View style={styles.view_body}>
                 <ScrollView>

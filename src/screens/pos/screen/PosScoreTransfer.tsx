@@ -5,7 +5,7 @@ import { RouteProp } from '@react-navigation/native';
 import Alert from 'components/Alert';
 import Button from 'components/Button';
 import CountSeconds from 'components/CountSeconds';
-import Header from 'components/Header';
+import Header from 'components/Header2';
 import Text from 'components/Text';
 import Touch from 'components/Touch';
 import View from 'components/View';
@@ -274,11 +274,14 @@ export default memo(function PosScoreTransfer({ route }: Props) {
     return (
         <View style={styles.view_container}>
             <Header
-                centerTitle="Đổi điểm tích luỹ"
-                colorBackIcon="black"
-                backgroundColor={theme.colors.white_[10]}
-                shadow={true}
-                statusBarColor={theme.colors.red['600']}
+                center={
+                    <Text size={'title2'} ta="center">
+                        Đổi điểm tích luỹ
+                    </Text>
+                }
+                showGoBack
+                bgColor={theme.colors.white_[10]}
+                statusBarColor={theme.colors.red[600]}
             />
 
             <ScrollView>

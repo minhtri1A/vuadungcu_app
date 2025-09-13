@@ -4,7 +4,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { Icon } from '@rneui/themed';
 import BottomSheet from 'components/BottomSheet';
 import Button from 'components/Button';
-import Header from 'components/Header';
+import Header from 'components/Header2';
 import Text from 'components/Text';
 import TextInput from 'components/TextInput';
 import Touch from 'components/Touch';
@@ -116,14 +116,16 @@ const PosCustomerInfo = memo(function PosCustomerInfo({ route }: Props) {
     return (
         <>
             <Header
-                centerComponent={{
-                    text: 'Thông tin khách hàng',
-                    style: { color: theme.colors.white_[10], fontSize: theme.typography.title2 },
-                }}
-                colorBackIcon={theme.colors.white_[10]}
-                backgroundColor="#f59423"
-                shadow={false}
+                center={
+                    <Text size={'title2'} ta="center" color={theme.colors.white_[10]}>
+                        Thông tin khách hàng
+                    </Text>
+                }
+                showGoBack
+                iconGoBackColor={theme.colors.black_[10]}
+                bgColor={'#f59423'}
             />
+
             {/* event */}
             <View bg={theme.colors.bgMain}>
                 <Text

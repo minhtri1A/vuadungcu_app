@@ -3,14 +3,13 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { Icon } from '@rneui/themed';
 import Alert2 from 'components/Alert2';
 import Button from 'components/Button';
-import Header from 'components/Header';
-import IconButton from 'components/IconButton';
+import Header from 'components/Header2';
 import Text from 'components/Text';
 import Touch from 'components/Touch';
 import View from 'components/View';
 import { NAVIGATION_TO_ADDRESS_FORM_SCREEN } from 'const/routes';
 import withAuth from 'hoc/withAuth';
-import { useCartAddressSwr, useCustomerAddress, useNavigate, useTheme } from 'hooks';
+import { useCartAddressSwr, useCustomerAddress, useTheme } from 'hooks';
 import { useRefreshControl } from 'hooks/useRefreshControl';
 import {
     CartAddressResponseType,
@@ -34,7 +33,6 @@ const AddressScreen = memo(function AddressScreen({ navigation, route }: Props) 
     //hook
     const { theme } = useTheme();
     const styles = useStyles(theme);
-    const navigate = useNavigate();
 
     //params
     const type = route.params.type;
@@ -256,21 +254,14 @@ const AddressScreen = memo(function AddressScreen({ navigation, route }: Props) 
     return (
         <View style={styles.container}>
             <Header
-                backgroundColor={theme.colors.white_[10]}
-                centerComponent={{
-                    text: type === 'customer' ? 'Danh sách địa chỉ' : 'Chọn địa chỉ',
-                    style: { fontSize: theme.typography.title2, color: theme.colors.black_[10] },
-                }}
-                leftComponent={
-                    <IconButton
-                        type="ionicon"
-                        name="arrow-back-outline"
-                        color={theme.colors.black_[10]}
-                        onPress={navigate.GO_BACK_ROUTE}
-                        size={theme.typography.title4}
-                    />
+                showGoBack
+                iconGoBackColor={theme.colors.black_[10]}
+                center={
+                    <Text size={'title2'}>
+                        {type === 'customer' ? 'Danh sách địa chỉ' : 'Chọn địa chỉ'}
+                    </Text>
                 }
-                shadow
+                bgColor={theme.colors.white_[10]}
             />
             {/* order address */}
             {isEmpty(listCustomerAddress) ? (

@@ -4,7 +4,6 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { ListItem } from '@rneui/themed';
 import BottomSheetAddressLocation from 'components/BottomSheetAddressLocation.tsx';
 import Button from 'components/Button';
-import Header from 'components/Header';
 import Switch from 'components/Switch';
 import Text from 'components/Text';
 import { RESET_LOCATION_VALUE } from 'features/action';
@@ -18,6 +17,7 @@ import React, { memo, useEffect, useState } from 'react';
 import { View } from 'react-native';
 import * as Yup from 'yup';
 import useStyles from './styles';
+import Header from 'components/Header2';
 /* eslint-disable react-hooks/exhaustive-deps */
 
 interface Props {
@@ -187,13 +187,15 @@ const AddressForm = memo(function AddressForm({ route }: Props) {
     return (
         <View style={{ flex: 1 }}>
             <Header
-                backgroundColor={theme.colors.white_[10]}
-                centerComponent={{
-                    text: isEmpty(addressEdit) ? 'Thêm mới địa chỉ' : 'Cập nhật địa chỉ',
-                    style: { fontSize: theme.typography.title1, color: theme.colors.black_[10] },
-                }}
-                shadow
-                statusBarColor={theme.colors.main['600']}
+                center={
+                    <Text size={'title2'}>
+                        {isEmpty(addressEdit) ? 'Thêm mới địa chỉ' : 'Cập nhật địa chỉ'}
+                    </Text>
+                }
+                showGoBack
+                bgColor={theme.colors.white_[10]}
+                iconGoBackColor={theme.colors.black_[10]}
+                statusBarColor={theme.colors.main['500']}
             />
             {/* from */}
             <View>

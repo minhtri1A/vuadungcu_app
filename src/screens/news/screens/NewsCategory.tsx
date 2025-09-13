@@ -1,11 +1,8 @@
 import { RouteProp } from '@react-navigation/native';
-import Header from 'components/Header';
 import { NewsStackParamsList } from 'navigation/type';
 import React, { memo } from 'react';
-// eslint-disable-next-line no-unused-vars
 import AfterInteractions from 'components/AfterInteractions';
 import { useTheme } from 'hooks';
-/* eslint-disable react-hooks/exhaustive-deps */
 import { DrawerNavigationProp } from '@react-navigation/drawer';
 import LoadingFetchAPI from 'components/LoadingFetchAPI';
 import NewsItemHorizontal from 'components/NewsItemHorizontal.tsx';
@@ -14,6 +11,8 @@ import useNewsSwrInfinity from 'hooks/swr/newsSwr/useNewsSwrInfinity';
 import { NewsItemType } from 'models';
 import { ListRenderItem } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
+import Text from 'components/Text';
+import Header from 'components/Header2';
 
 interface Props {
     // navigation: NativeStackScreenProps<ProductStackParamsList, 'ProductScreen'>;
@@ -48,11 +47,12 @@ const NewsCategory = memo(function NewsCategory({ route }: Props) {
     return (
         <View style={{ flex: 1 }}>
             <Header
-                colorBackIcon={theme.colors.white_[10]}
-                centerContainerStyle={{ flex: 0.8 }}
-                rightContainerStyle={{ flex: 0.1 }}
-                centerTitle={name}
-                shadow
+                center={
+                    <Text size={'title2'} ta="center" color={theme.colors.white_[10]}>
+                        {name}
+                    </Text>
+                }
+                showGoBack
             />
             <AfterInteractions style={{ backgroundColor: theme.colors.white_[10] }}>
                 <FlatList

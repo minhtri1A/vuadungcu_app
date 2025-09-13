@@ -2,7 +2,6 @@ import React, { memo } from 'react';
 // import { Header } from '@rneui/themed';
 import { RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import Header from 'components/Header';
 import Image from 'components/Image';
 import Text from 'components/Text';
 import View from 'components/View';
@@ -13,6 +12,7 @@ import { map } from 'lodash';
 import { ProductDetailStackParamsList } from 'navigation/type';
 import { ScrollView, StyleSheet } from 'react-native';
 import SellerItems from './components/SellerItems';
+import Header from 'components/Header2';
 
 interface Props {
     route: RouteProp<ProductDetailStackParamsList, 'PriceComparisonScreen'>;
@@ -22,7 +22,7 @@ interface Props {
 const PriceComparisonScreen = memo(function PriceComparisonScreen({ route }: Props) {
     //hook
     const {
-        theme: { colors, typography },
+        theme: { colors },
     } = useTheme();
     const styles = useStyles();
     //params
@@ -41,13 +41,14 @@ const PriceComparisonScreen = memo(function PriceComparisonScreen({ route }: Pro
     return (
         <View flex={1}>
             <Header
-                statusBarProps={{ backgroundColor: colors.white_[10], hidden: false }}
-                backgroundColor={colors.white_[10]}
-                centerComponent={{
-                    text: 'So sánh giá',
-                    style: { fontSize: typography.title1, color: colors.black_[10] },
-                }}
-                shadow
+                center={
+                    <Text size={'title2'} ta="center">
+                        So sánh giá
+                    </Text>
+                }
+                showGoBack
+                iconGoBackColor={colors.black_[10]}
+                bgColor={colors.white_[10]}
                 statusBarColor={colors.main['600']}
             />
             {/* top info */}

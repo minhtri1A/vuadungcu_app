@@ -1,11 +1,11 @@
 import { Icon } from '@rneui/themed';
-import Header from 'components/Header';
+import Header from 'components/Header2';
 import Menu from 'components/Menu';
 import MiniCart from 'components/MiniCart';
 import Text from 'components/Text';
 import View from 'components/View';
 import withAuth from 'hoc/withAuth';
-import { useIsLogin, useTheme } from 'hooks';
+import { useTheme } from 'hooks';
 import React, { memo } from 'react';
 import { FlatList, ListRenderItem, StyleSheet, TouchableOpacity } from 'react-native';
 import { themeType } from 'theme';
@@ -20,15 +20,12 @@ import NotifyItem from './components/NotifyItem';
 const NotifyScreen = memo(function NotifyScreen() {
     //hooks
     const { theme } = useTheme();
-    const isLogin = useIsLogin();
     const styles = useStyles(theme);
 
     //render
 
     //handle
-    const renderListNotifyItem: ListRenderItem<number> = ({ item, index }) => (
-        <NotifyItem key={index} />
-    );
+    const renderListNotifyItem: ListRenderItem<number> = ({ index }) => <NotifyItem key={index} />;
 
     return (
         <View style={styles.view_container}>
@@ -38,10 +35,14 @@ const NotifyScreen = memo(function NotifyScreen() {
                 barStyle={'dark-content'}
             /> */}
             {/* header */}
+
             <Header
-                centerTitle="Thông báo"
-                backgroundColor={'transparent'}
-                rightComponent={
+                center={
+                    <Text size={'title2'} ta="center">
+                        Thông báo
+                    </Text>
+                }
+                right={
                     <View flex={1} flexDirect="row" aI="center">
                         <MiniCart color={theme.colors.grey_['600']} />
                         <Menu
@@ -62,10 +63,9 @@ const NotifyScreen = memo(function NotifyScreen() {
                         </Menu>
                     </View>
                 }
-                leftContainerStyle={styles.header_left}
-                centerContainerStyle={styles.header_center}
-                rightContainerStyle={styles.header_right}
-                colorBackIcon={theme.colors.grey_['600']}
+                showGoBack
+                iconGoBackColor={theme.colors.black_[10]}
+                bgColor={theme.colors.white_[10]}
             />
             <View style={styles.view_body}>
                 <FlatList

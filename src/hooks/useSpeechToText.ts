@@ -6,7 +6,7 @@ export const useSpeechToText = () => {
     const [result, setResult] = useState('');
     const [isListening, setIsListening] = useState(false);
 
-    const timeoutRef = useRef<NodeJS.Timeout | undefined>();
+    const timeoutRef = useRef<any>(null);
 
     useEffect(() => {
         Voice.onSpeechResults = onSpeechResults;
@@ -53,7 +53,7 @@ export const useSpeechToText = () => {
         timeoutRef.current = setTimeout(stopListening, 3000);
     };
 
-    const onSpeechPartialResults = (e: any) => {
+    const onSpeechPartialResults = () => {
         // clear previous timeout and start a new one when speech changes
         if (timeoutRef.current) {
             clearTimeout(timeoutRef.current);

@@ -38,7 +38,7 @@
     "@types/lodash": "^4.17.20",
     "@types/react-native-global-props": "^1.1.6",
     "@types/react-native-material-ripple": "^0.9.6",
-    "axios": "^1.11.0",
+    "axios": "^1.7.7",
     "babel-plugin-module-resolver": "^5.0.2",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "d3-shape": "^3.2.0",

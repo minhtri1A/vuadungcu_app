@@ -6,11 +6,11 @@ import { Icon, Tab, TabView } from '@rneui/themed';
 import imgShop from 'asset/img_shop_test.png';
 import AfterInteractions from 'components/AfterInteractions';
 import Button from 'components/Button';
-import Header from 'components/Header';
-import IconButton from 'components/IconButton';
+import Header from 'components/Header2';
 import Image from 'components/Image';
 import LoadingFetchAPI from 'components/LoadingFetchAPI';
 import Text from 'components/Text';
+import Touch from 'components/Touch';
 import View from 'components/View';
 import { useNavigate, useSellerSwr, useTheme } from 'hooks';
 import { ShopStackParamsList } from 'navigation/type';
@@ -30,7 +30,7 @@ interface Props {
     route: RouteProp<ShopStackParamsList, 'ShopScreen'>;
 }
 
-export default memo(function ShopScreen({ navigation, route }: Props) {
+export default memo(function ShopScreen({ route }: Props) {
     //hook
     const {
         theme: { colors, typography, spacings, dimens, styles: sty },
@@ -62,30 +62,17 @@ export default memo(function ShopScreen({ navigation, route }: Props) {
     return (
         <View style={{ flex: 1 }}>
             {/* header */}
+
             <Header
-                leftComponent={
-                    <IconButton
-                        type="ionicon"
-                        name="arrow-back-outline"
-                        onPress={navigation.goBack}
-                        size={typography.title4}
-                        color={colors.white_[10]}
-                        activeOpacity={0.5}
-                    />
-                }
-                centerComponent={
-                    <TouchableOpacity
-                        containerStyle={styles.touch_container_search}
-                        onPress={handleVisibleSearchModal}
-                    >
+                center={
+                    <Touch style={styles.touch_container_search} onPress={handleVisibleSearchModal}>
                         <Text color={colors.white_[10]}>Tìm kiếm với cửa hàng...</Text>
-                    </TouchableOpacity>
+                    </Touch>
                 }
-                backgroundColor={'transparent'}
-                containerStyle={styles.header_container}
-                centerContainerStyle={styles.header_center_container}
-                leftContainerStyle={styles.header_left_container}
-                rightContainerStyle={styles.header_right_container}
+                showGoBack
+                iconGoBackColor={colors.grey_[300]}
+                bgColor={'transparent'}
+                isShadow={false}
             />
             {/* header view */}
             <View style={styles.view_wrap_header_image}>

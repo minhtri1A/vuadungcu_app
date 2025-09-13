@@ -1,8 +1,7 @@
 import { RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Icon } from '@rneui/themed';
-import Header from 'components/Header';
-import IconButton from 'components/IconButton';
+import Header from 'components/Header2';
 import LoadingFetchAPI from 'components/LoadingFetchAPI';
 import Text from 'components/Text';
 import Touch from 'components/Touch';
@@ -107,22 +106,13 @@ const PosScoreScreen = memo(function PosScoreScreen({ route }: Props) {
     return (
         <>
             <Header
-                centerComponent={{
-                    text: seller_name,
-                    style: { color: theme.colors.white_[10], fontSize: theme.typography.title2 },
-                }}
-                rightComponent={
-                    <IconButton
-                        type="ionicon"
-                        name="help-circle-outline"
-                        onPress={navigate.POLICY_DETAIL_ROUTE({ type: 'event-loyal' })}
-                        size={theme.typography.title3}
-                        color={theme.colors.white_[10]}
-                    />
+                center={
+                    <Text size={'title2'} ta="center" color={theme.colors.white_[10]}>
+                        {seller_name}
+                    </Text>
                 }
-                colorBackIcon={theme.colors.white_[10]}
-                backgroundColor="#f59423"
-                shadow={false}
+                showGoBack
+                bgColor={'#f59423'}
             />
             {/* event */}
             <>

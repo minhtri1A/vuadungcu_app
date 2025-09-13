@@ -1,7 +1,6 @@
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import Header from 'components/Header';
-import IconButton from 'components/IconButton';
+import Header from 'components/Header2';
 import Image from 'components/Image';
 import Text from 'components/Text';
 import Title from 'components/Title';
@@ -16,13 +15,11 @@ import { ActivityIndicator, RefreshControl, ScrollView, StyleSheet } from 'react
 import { themeType } from 'theme';
 import { currencyFormat, getDateWithTimeStamp, isEmpty } from 'utils/helpers';
 
-/* eslint-disable react-hooks/exhaustive-deps */
-
 interface Props {
     navigation: StackNavigationProp<any, any>;
 }
 
-const WarrantyDetailScreen = memo(function WarrantyDetailScreen({ navigation }: Props) {
+const WarrantyDetailScreen = memo(function WarrantyDetailScreen({}: Props) {
     //hook
     const { theme } = useTheme();
     const styles = useStyles(theme);
@@ -60,27 +57,15 @@ const WarrantyDetailScreen = memo(function WarrantyDetailScreen({ navigation }: 
     return (
         <>
             <Header
-                leftComponent={
-                    <IconButton
-                        color={theme.colors.slate[900]}
-                        type="ionicon"
-                        name="arrow-back-outline"
-                        onPress={navigation.goBack}
-                        size={theme.typography.title4}
-                    />
+                center={
+                    <Text size={'title2'} ta="center">
+                        Chi tiết bảo hành
+                    </Text>
                 }
-                centerComponent={{
-                    text: 'Chi tiết bảo hành',
-                    style: {
-                        color: theme.colors.slate[900],
-                        fontSize: theme.typography.title2,
-                        alignSelf: 'flex-start',
-                    },
-                }}
-                backgroundColor={theme.colors.white_[10]}
-                statusBarProps={{ backgroundColor: theme.colors.main['600'] }}
-                // eslint-disable-next-line react-native/no-inline-styles
-                containerStyle={{ borderBottomWidth: 1 }}
+                showGoBack
+                iconGoBackColor={theme.colors.black_[10]}
+                bgColor={theme.colors.white_[10]}
+                statusBarColor={theme.colors.main[500]}
             />
             {loadingInit === Status.LOADING ? (
                 <ActivityIndicator

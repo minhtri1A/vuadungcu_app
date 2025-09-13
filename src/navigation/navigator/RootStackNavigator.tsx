@@ -37,7 +37,7 @@ const RootStackNavigator = memo(() => {
                             tabBarInactiveTintColor: theme.colors.grey_[500],
                             tabBarShowLabel: false,
                             headerShown: false,
-                            tabBarPosition: 'bottom',
+                            freezeOnBlur: true,
                         }}
                         backBehavior="history"
                     >

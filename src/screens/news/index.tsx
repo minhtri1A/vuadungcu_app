@@ -1,6 +1,5 @@
 import { RouteProp } from '@react-navigation/native';
 import FocusAwareStatusBar from 'components/FocusAwareStatusBar';
-import Header from 'components/Header';
 import { NewsStackParamsList } from 'navigation/type';
 import React, { memo, useState } from 'react';
 // eslint-disable-next-line no-unused-vars
@@ -23,6 +22,7 @@ import NewsCategorySection from './components/NewsCategorySection';
 import NewsFeaturedSection from './components/NewsFeaturedSection';
 import NewsSortSection from './components/NewsSortSection';
 import useStyles from './styles';
+import Header from 'components/Header2';
 
 interface Props {
     // navigation: NativeStackScreenProps<ProductStackParamsList, 'ProductScreen'>;
@@ -71,13 +71,15 @@ const NewsScreen = memo(function NewsScreen(props: Props) {
                 backgroundColor="transparent"
                 barStyle={'light-content'}
             />
+
             <Header
-                centerComponent={{
-                    text: 'Review & Ý Tưởng',
-                    style: { color: colors.white_[10], fontSize: typography.title2 },
-                }}
-                colorBackIcon={colors.white_[10]}
-                rightComponent={
+                center={
+                    <Text size={'title2'} ta="center" color={colors.white_[10]}>
+                        Review & Ý Tưởng
+                    </Text>
+                }
+                showGoBack
+                right={
                     <IconButton
                         type="ionicon"
                         name="list-outline"

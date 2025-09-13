@@ -4,8 +4,7 @@ import Clipboard from '@react-native-community/clipboard';
 import { RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Button } from '@rneui/themed';
-import Header from 'components/Header';
-import IconButton from 'components/IconButton';
+import Header from 'components/Header2';
 import Text from 'components/Text';
 import { useTheme } from 'hooks';
 import { OrdersStackParamsList } from 'navigation/type';
@@ -20,12 +19,11 @@ interface Props {
     route: RouteProp<OrdersStackParamsList, 'OrdersShippingScreen'>;
 }
 
-export default memo(function OrdersShipping({ navigation, route }: Props) {
+export default memo(function OrdersShipping({}: Props) {
     //hook
     const { theme } = useTheme();
     const styles = useStyles(theme);
     //state
-    const orderUuid = route.params.order_uuid;
 
     const copyOrderIdToClipboard = (order_id: string) => () => {
         Clipboard.setString(order_id);
@@ -73,25 +71,15 @@ export default memo(function OrdersShipping({ navigation, route }: Props) {
     return (
         <>
             <Header
-                centerComponent={{
-                    text: 'Chi tiết vận chuyển',
-                    style: {
-                        color: theme.colors.slate[900],
-                        fontSize: theme.typography.title1,
-                    },
-                }}
-                leftComponent={
-                    <IconButton
-                        type="ionicon"
-                        name="arrow-back-outline"
-                        onPress={navigation.goBack}
-                        size={theme.typography.title3}
-                        color={theme.colors.slate[900]}
-                    />
+                center={
+                    <Text size={'title2'} ta="center">
+                        Chi tiết vận chuyển
+                    </Text>
                 }
-                backgroundColor={theme.colors.white_[10]}
-                statusBarProps={{ backgroundColor: theme.colors.main['600'] }}
-                containerStyle={theme.styles.shadow1}
+                showGoBack
+                iconGoBackColor={theme.colors.black_[10]}
+                bgColor={theme.colors.white_[10]}
+                statusBarColor={theme.colors.main[500]}
             />
             <View style={styles.view_container}>
                 <View

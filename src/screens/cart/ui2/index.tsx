@@ -1,7 +1,6 @@
 import { CheckBox } from '@rneui/themed';
 import AfterInteractions from 'components/AfterInteractions';
 import Button from 'components/Button';
-import Header from 'components/Header';
 import IconButton from 'components/IconButton';
 import Image from 'components/Image';
 import Loading from 'components/Loading';
@@ -26,6 +25,7 @@ import { themeType } from 'theme';
 import { currencyFormat, isEmpty } from 'utils/helpers';
 import { sendSentryError } from 'utils/storeHelpers';
 import CartSellerSection from './components/CartSellerSection';
+import Header from 'components/Header2';
 
 /* eslint-disable react-hooks/exhaustive-deps */
 
@@ -68,7 +68,7 @@ const CartScreen = memo(function CartScreen({}: Props) {
     const [statusCheckout, setStatusCheckout] = useState<string>(Status.DEFAULT);
     //--data
     const [cartSeller, setCartSeller] = useState<Array<CartItemsSellerResponseType>>([]);
-    const totalItem = useRef<number | undefined>();
+    const totalItem = useRef<number | undefined>(undefined);
     //--check all
     const [checkedAll, setCheckedAll] = useState(false);
     const [countItemsChecked, setCountItemsChecked] = useState(0);
@@ -362,24 +362,14 @@ const CartScreen = memo(function CartScreen({}: Props) {
     return (
         <View style={styles.container}>
             <Header
-                backgroundColor={theme.colors.white_[10]}
-                centerComponent={{
-                    text: 'Giỏ hàng',
-                    style: { fontSize: theme.typography.title2, color: theme.colors.black_[10] },
-                }}
-                leftComponent={
-                    <IconButton
-                        type="ionicon"
-                        name="close"
-                        color={theme.colors.black_[10]}
-                        onPress={navigate.GO_BACK_ROUTE}
-                        size={theme.typography.title4}
-                    />
+                center={
+                    <Text size={'title2'} ta="center">
+                        Giỏ hàng
+                    </Text>
                 }
-                leftContainerStyle={styles.header_left}
-                centerContainerStyle={styles.header_center}
-                rightContainerStyle={styles.header_right}
-                shadow
+                showGoBack
+                iconGoBackColor={theme.colors.black_[10]}
+                bgColor={theme.colors.white_[10]}
             />
             <AfterInteractions>
                 {!isEmpty(cartSeller) ? (

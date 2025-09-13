@@ -1,5 +1,5 @@
 import { Icon, Tab } from '@rneui/themed';
-import Header from 'components/Header';
+import Header from 'components/Header2';
 import Image from 'components/Image';
 import LoadingFetchAPI from 'components/LoadingFetchAPI';
 import Text from 'components/Text';
@@ -21,7 +21,6 @@ import {
 } from 'react-native';
 import { themeType } from 'theme';
 import { isEmpty } from 'utils/helpers';
-/* eslint-disable react-hooks/exhaustive-deps */
 
 interface Props {}
 
@@ -85,22 +84,22 @@ const WarrantyScreen = memo(function WarrantyScreen({}: Props) {
     //render
 
     const renderTabItems = () =>
-        map(warrantyData, (value, index) => (
+        map(warrantyData, (value, i) => (
             <Tab.Item
                 titleStyle={(active) => ({
                     color: active ? theme.colors.main['600'] : theme.colors.grey_[600],
                     fontSize: theme.typography.body2,
                     fontWeight: '500',
                 })}
-                key={index}
+                key={i}
             >
                 {value.label}
             </Tab.Item>
         ));
 
-    const renderListWarranty: ListRenderItem<WarrantiesResponseType> = ({ item, index }) => (
+    const renderListWarranty: ListRenderItem<WarrantiesResponseType> = ({ item, index: i }) => (
         <TouchableOpacity
-            key={index}
+            key={i}
             style={styles.touch_wrap}
             activeOpacity={0.8}
             onPress={() => {
@@ -171,8 +170,16 @@ const WarrantyScreen = memo(function WarrantyScreen({}: Props) {
 
     return (
         <>
-            <Header centerTitle="Bảo hành" backgroundColor={theme.colors.white_[10]} />
-
+            <Header
+                center={
+                    <Text size={'title2'} ta="center">
+                        Bảo hành
+                    </Text>
+                }
+                showGoBack
+                iconGoBackColor={theme.colors.black_[10]}
+                bgColor={theme.colors.white_[10]}
+            />
             <View flex={1}>
                 <Tab
                     value={index}

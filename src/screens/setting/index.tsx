@@ -1,8 +1,7 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import { ListItem } from '@rneui/themed';
 import Button from 'components/Button';
-import Header from 'components/Header';
-import IconButton from 'components/IconButton';
+import Header from 'components/Header2';
 import Text from 'components/Text';
 import Touch from 'components/Touch';
 import View from 'components/View';
@@ -17,7 +16,6 @@ import useUser from 'hooks/handle/useUser';
 import React, { memo } from 'react';
 import { Alert, ScrollView } from 'react-native';
 import useStyles from './styles';
-/* eslint-disable react-hooks/exhaustive-deps */
 
 interface Props {
     navigation: StackNavigationProp<any, any>;
@@ -53,20 +51,14 @@ export default memo(function SettingScreen({ navigation }: Props) {
     return (
         <>
             <Header
-                leftComponent={
-                    <IconButton
-                        type="ionicon"
-                        name="arrow-back-outline"
-                        onPress={navigation.goBack}
-                        size={theme.typography.title3}
-                        color={theme.colors.white_[10]}
-                    />
+                center={
+                    <Text size={'title2'} ta="center" color={theme.colors.white}>
+                        Cài đặt
+                    </Text>
                 }
-                centerComponent={{
-                    text: 'Cài đặt',
-                    style: { color: theme.colors.white_[10], fontSize: theme.typography.title2 },
-                }}
+                showGoBack
             />
+
             <View style={styles.view_container}>
                 <ScrollView style={styles.scrollview}>
                     {isLogin ? (

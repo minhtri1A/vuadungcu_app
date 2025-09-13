@@ -1,8 +1,7 @@
 import { RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import Button from 'components/Button';
-import Header from 'components/Header';
-import IconButton from 'components/IconButton';
+import Header from 'components/Header2';
 import Loading from 'components/Loading';
 import Text from 'components/Text';
 import TextInput from 'components/TextInput';
@@ -97,27 +96,15 @@ export default memo(function ResetPasswordScreen({ navigation, route }: Props) {
     return (
         <>
             <Header
-                centerComponent={{
-                    text: 'Đặt lại mật khẩu',
-                    style: {
-                        color: theme.colors.slate[900],
-                        fontSize: theme.typography.title2,
-                        alignSelf: 'flex-start',
-                    },
-                }}
-                leftComponent={
-                    <IconButton
-                        type="ionicon"
-                        name="arrow-back-outline"
-                        onPress={navigation.goBack}
-                        size={theme.typography.title3}
-                        color={theme.colors.slate[900]}
-                    />
+                center={
+                    <Text size={'title2'} ta="center">
+                        Đặt lại mật khẩu
+                    </Text>
                 }
-                backgroundColor={theme.colors.white_[10]}
-                statusBarProps={{ backgroundColor: theme.colors.main['600'] }}
-                containerStyle={theme.styles.shadow1}
-                shadow
+                showGoBack
+                iconGoBackColor={theme.colors.black_[10]}
+                bgColor={theme.colors.white_[10]}
+                statusBarColor={theme.colors.main['500']}
             />
             <View style={styles.view_containerEditScreen}>
                 <View style={{ paddingBottom: theme.spacings.small }}>

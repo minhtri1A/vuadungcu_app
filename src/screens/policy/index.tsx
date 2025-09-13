@@ -1,8 +1,8 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import { ListItem } from '@rneui/themed';
 import Divider from 'components/Divider';
-import Header from 'components/Header';
-import IconButton from 'components/IconButton';
+import Header from 'components/Header2';
+import Text from 'components/Text';
 import { NAVIGATION_TO_POLICY_DETAIL_SCREEN } from 'const/routes';
 import { useTheme } from 'hooks';
 import { ParamsArticleType } from 'models';
@@ -54,26 +54,17 @@ export default memo(function PolicyScreen({ navigation }: Props) {
     return (
         <>
             <Header
-                centerComponent={{
-                    text: 'Chính sách Vua dụng cụ',
-                    style: {
-                        color: theme.colors.slate[900],
-                        fontSize: theme.typography.title2,
-                    },
-                }}
-                leftComponent={
-                    <IconButton
-                        type="ionicon"
-                        name="arrow-back-outline"
-                        onPress={navigation.goBack}
-                        size={theme.typography.title3}
-                        color={theme.colors.slate[900]}
-                    />
+                center={
+                    <Text size={'title2'} ta="center">
+                        Chính sách Vua dụng cụ
+                    </Text>
                 }
-                backgroundColor={theme.colors.white_[10]}
-                statusBarProps={{ backgroundColor: theme.colors.main['600'] }}
-                containerStyle={theme.styles.shadow1}
+                showGoBack
+                iconGoBackColor={theme.colors.black_[10]}
+                bgColor={theme.colors.white_[10]}
+                statusBarColor={theme.colors.main[500]}
             />
+
             <View>
                 <Divider />
                 {POLICIES.map((v, i) => (

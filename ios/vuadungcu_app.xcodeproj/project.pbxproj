@@ -21,6 +21,7 @@
 /* Begin PBXFileReference section */
 		108108A12E7258CE00A5E251 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		108108A22E7258CE00A5E251 /* GoogleService-Info-dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-dev.plist"; sourceTree = "<group>"; };
+		109237F32E73A05A0051EED1 /* vuadungcu_app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = vuadungcu_app.entitlements; path = vuadungcu_app/vuadungcu_app.entitlements; sourceTree = "<group>"; };
 		1095359F2E70284700BAED4B /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		109535A62E7028B200BAED4B /* BootSplash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BootSplash.storyboard; sourceTree = "<group>"; };
 		109535A72E7028B200BAED4B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -52,6 +53,7 @@
 		13B07FAE1A68108700A75B9A /* vuadungcu_app */ = {
 			isa = PBXGroup;
 			children = (
+				109237F32E73A05A0051EED1 /* vuadungcu_app.entitlements */,
 				108108A12E7258CE00A5E251 /* GoogleService-Info.plist */,
 				108108A22E7258CE00A5E251 /* GoogleService-Info-dev.plist */,
 				109535A62E7028B200BAED4B /* BootSplash.storyboard */,
@@ -294,9 +296,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = vuadungcu_app/vuadungcu_app.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 46;
+				CURRENT_PROJECT_VERSION = 47;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = NYDWXQR648;
 				ENABLE_BITCODE = NO;
@@ -308,7 +311,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.9;
+				MARKETING_VERSION = 1.1.10;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -331,9 +334,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = vuadungcu_app/vuadungcu_app.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 46;
+				CURRENT_PROJECT_VERSION = 47;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = NYDWXQR648;
 				INFOPLIST_FILE = vuadungcu_app/Info.plist;
@@ -344,7 +348,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.9;
+				MARKETING_VERSION = 1.1.10;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

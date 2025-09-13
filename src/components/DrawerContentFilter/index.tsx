@@ -23,7 +23,7 @@ import View from 'components/View';
 import { NEXT_PUBLIC_CURRENCY } from 'const/env';
 import useProductFiltersSwr from 'hooks/swr/productSwr/useProductFiltersSwr';
 import { FilterItemType } from 'models';
-import { Platform, StatusBar } from 'react-native';
+import { Platform } from 'react-native';
 import { currencyFormat, isEmpty } from 'utils/helpers';
 
 export const DrawerContentFilter = memo(function DrawerContentFilter({
@@ -334,7 +334,6 @@ export const DrawerContentFilter = memo(function DrawerContentFilter({
 
     return (
         <View style={styles.view_drawer_container}>
-            <StatusBar translucent={true} />
             <Text style={styles.txt_title_filter}>Bộ lọc tìm kiếm</Text>
             <AfterInteractions>
                 <View flex={1}>
@@ -411,8 +410,7 @@ const useStyles = () => {
             color: theme.colors.white_[10],
             fontSize: theme.typography.body3,
             padding: theme.spacings.small,
-            backgroundColor: theme.colors.main['600'],
-            paddingTop: theme.dimens.statusBarHeight,
+            backgroundColor: theme.colors.main['500'],
         },
 
         /* ----- drawer filter ----- */

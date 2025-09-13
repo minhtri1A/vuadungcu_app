@@ -3,6 +3,7 @@ import React
 import React_RCTAppDelegate
 import ReactAppDependencyProvider
 import Firebase
+import FBSDKCoreKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -32,10 +33,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       in: window,
       launchOptions: launchOptions
     )
+    
+    ApplicationDelegate.shared.application(
+       application,
+       didFinishLaunchingWithOptions: launchOptions
+     )
 
     return true
   }
+  
+  func application(_ app: UIApplication,
+                   open url: URL,
+                   options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    return ApplicationDelegate.shared.application(
+      app,
+      open: url,
+      options: options
+    )
+  }
 }
+
+
 
 class ReactNativeDelegate: RCTDefaultReactNativeFactoryDelegate {
   override func sourceURL(for bridge: RCTBridge) -> URL? {

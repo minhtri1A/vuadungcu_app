@@ -1,6 +1,6 @@
 import { RouteProp } from '@react-navigation/native';
 import { Icon } from '@rneui/themed';
-import Header from 'components/Header';
+import Header from 'components/Header2';
 import LoadingFetchAPI from 'components/LoadingFetchAPI';
 import Text from 'components/Text';
 import Touch from 'components/Touch';
@@ -89,12 +89,15 @@ export default function NTLOrdersScreen({ route }: Props) {
     return (
         <View flex={1}>
             <Header
-                centerTitle="Đơn hàng trực tiếp"
-                colorBackIcon="black"
-                backgroundColor={theme.colors.white_[10]}
-                shadow={true}
-                statusBarColor={theme.colors.main['600']}
-                centerTitleSize={'title1'}
+                center={
+                    <Text size={'title2'} ta="center">
+                        Đơn hàng trực tiếp
+                    </Text>
+                }
+                showGoBack
+                iconGoBackColor={theme.colors.black_[10]}
+                bgColor={theme.colors.white_[10]}
+                statusBarColor={theme.colors.main[500]}
             />
 
             <View flexDirect="row" jC="space-evenly" p={'small'} bg={theme.colors.white_[10]}>

@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import AfterInteractions from 'components/AfterInteractions';
-import Header from 'components/Header';
+import Header from 'components/Header2';
 import IconAddCart from 'components/IconAddCart';
 import Image from 'components/Image';
 import MiniCart from 'components/MiniCart';
@@ -100,17 +100,20 @@ const FlashSaleScreen = memo(function FlashSaleScreen() {
     return (
         <View style={styles.view_container}>
             <Header
-                centerTitle="Sản phẩm giảm giá"
-                backgroundColor={theme.colors.red['400']}
-                statusBarProps={{ backgroundColor: theme.colors.red['400'] }}
-                centerTitleSize={'title1'}
-                colorBackIcon={theme.colors.white_[10]}
-                rightComponent={
+                center={
+                    <Text size={'title2'} ta="center">
+                        Sản phẩm giảm giá
+                    </Text>
+                }
+                right={
                     <MiniCart
                         color={theme.colors.white_[10]}
                         badgeBgColor={theme.colors.main['600']}
                     />
                 }
+                showGoBack
+                iconGoBackColor={theme.colors.black_[10]}
+                bgColor={theme.colors.red['400']}
             />
             <AfterInteractions style={styles.view_body}>
                 {products.length > 0 ? (

@@ -74,7 +74,6 @@ const Header = memo(function Header_(props: Props) {
         <View style={[viewContainerStyle, shadow1]}>
             <H
                 statusBarProps={{
-                    translucent: true,
                     backgroundColor: statusBarColor,
                     barStyle: 'dark-content',
                 }}

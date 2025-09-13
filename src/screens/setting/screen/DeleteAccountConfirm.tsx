@@ -1,12 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { getMessage, useAppDispatch, useCustomerSwr, useNavigation, useTheme } from 'hooks';
+import { getMessage, useAppDispatch, useCustomerSwr, useTheme } from 'hooks';
 import React, { memo, useEffect, useState } from 'react';
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line no-unused-vars
 import { CheckBox } from '@rneui/themed';
 import Button from 'components/Button';
-import Header from 'components/Header';
-import IconButton from 'components/IconButton';
+import Header from 'components/Header2';
 import Loading from 'components/Loading';
 import Text from 'components/Text';
 import View from 'components/View';
@@ -21,7 +20,6 @@ interface Props {}
 export default memo(function DeleteAccountConfirmScreen({}: Props) {
     //hook
     const { theme } = useTheme();
-    const navigation = useNavigation();
     const dispatch = useAppDispatch();
     //state
     const [open, setOpen] = useState(false);
@@ -64,27 +62,15 @@ export default memo(function DeleteAccountConfirmScreen({}: Props) {
     return (
         <>
             <Header
-                leftComponent={
-                    <IconButton
-                        type="ionicon"
-                        name="arrow-back-outline"
-                        onPress={navigation.goBack}
-                        size={theme.typography.title3}
-                        color={theme.colors.slate[900]}
-                    />
+                center={
+                    <Text size={'title2'} ta="center">
+                        Xoá tài khoản
+                    </Text>
                 }
-                centerComponent={{
-                    text: 'Xoá tài khoản',
-                    style: {
-                        color: theme.colors.slate[900],
-                        fontSize: theme.typography.title2,
-                        // alignSelf: 'flex-start',
-                    },
-                }}
-                backgroundColor={theme.colors.white_[10]}
-                statusBarProps={{ backgroundColor: theme.colors.main['600'] }}
-                containerStyle={{ borderBottomWidth: 1 }}
-                shadow
+                showGoBack
+                iconGoBackColor={theme.colors.black_[10]}
+                bgColor={theme.colors.white_[10]}
+                statusBarColor={theme.colors.main[500]}
             />
             {/* body */}
             <View flex={1}>

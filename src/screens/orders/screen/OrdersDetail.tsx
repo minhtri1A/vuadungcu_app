@@ -6,8 +6,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { Icon } from '@rneui/themed';
 import Button from 'components/Button';
 import Divider from 'components/Divider';
-import Header from 'components/Header';
-import IconButton from 'components/IconButton';
+import Header from 'components/Header2';
 import Image from 'components/Image';
 import Text from 'components/Text';
 import View from 'components/View';
@@ -63,7 +62,7 @@ const orderConfig = {
     },
 };
 
-export default memo(function OrdersDetailScreen({ navigation, route }: Props) {
+export default memo(function OrdersDetailScreen({ route }: Props) {
     //hook
     const { theme } = useTheme();
     const styles = useStyles(theme);
@@ -86,25 +85,15 @@ export default memo(function OrdersDetailScreen({ navigation, route }: Props) {
     return (
         <>
             <Header
-                centerComponent={{
-                    text: 'Chi tiết đơn hàng',
-                    style: {
-                        color: theme.colors.slate[900],
-                        fontSize: theme.typography.title1,
-                    },
-                }}
-                leftComponent={
-                    <IconButton
-                        type="ionicon"
-                        name="arrow-back-outline"
-                        onPress={navigation.goBack}
-                        size={theme.typography.title3}
-                        color={theme.colors.slate[900]}
-                    />
+                center={
+                    <Text size={'title2'} ta="center">
+                        Chi tiết đơn hàng
+                    </Text>
                 }
-                backgroundColor={theme.colors.white_[10]}
-                statusBarProps={{ backgroundColor: theme.colors.main['600'] }}
-                shadow={true}
+                showGoBack
+                iconGoBackColor={theme.colors.black_[10]}
+                bgColor={theme.colors.white_[10]}
+                statusBarColor={theme.colors.main[500]}
             />
             {data ? (
                 <ScrollView style={styles.view_container}>
@@ -157,7 +146,7 @@ export default memo(function OrdersDetailScreen({ navigation, route }: Props) {
                                     <TouchableOpacity
                                         onPress={copyOrderIdToClipboard(data.order_id)}
                                     >
-                                        <Text color={colors.cyan['500']}>SAO CHÉP</Text>
+                                        <Text color={theme.colors.cyan['500']}>SAO CHÉP</Text>
                                     </TouchableOpacity>
                                 </View>
                                 <Text ta="right" mb={5}>
@@ -223,7 +212,7 @@ export default memo(function OrdersDetailScreen({ navigation, route }: Props) {
                                         <Text>{data.order_summary.delivery}</Text>
                                     </View>
                                     <View pl={'small'}>
-                                        <Text ta="right" color={colors.cyan['500']}>
+                                        <Text ta="right" color={theme.colors.cyan['500']}>
                                             {data.order_summary.shipping_fee > 0
                                                 ? currencyFormat(data.order_summary.shipping_fee)
                                                 : 'Miễn phí vận chuyển'}

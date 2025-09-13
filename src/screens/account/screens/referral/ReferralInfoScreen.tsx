@@ -1,9 +1,8 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import Header from 'components/Header';
-import IconButton from 'components/IconButton';
+import Header from 'components/Header2';
 import LoadingFetchAPI from 'components/LoadingFetchAPI';
+import Text from 'components/Text';
 import { useTheme } from 'hooks';
 import { PolicyStackParamsList } from 'navigation/type';
 import React, { memo, useEffect, useState } from 'react';
@@ -18,7 +17,7 @@ interface Props {
     route: RouteProp<PolicyStackParamsList, 'PolicyDetailScreen'>;
 }
 
-export default memo(function ReferralInfoScreen({ navigation, route }: Props) {
+export default memo(function ReferralInfoScreen({}: Props) {
     //hook
     const { theme } = useTheme();
     const styles = useStyles(theme);
@@ -48,26 +47,11 @@ export default memo(function ReferralInfoScreen({ navigation, route }: Props) {
     return (
         <>
             <Header
-                centerComponent={{
-                    text: policyApi?.title || '',
-                    style: {
-                        color: theme.colors.slate[900],
-                        fontSize: theme.typography.title1,
-                    },
-                }}
-                leftComponent={
-                    <IconButton
-                        type="ionicon"
-                        name="arrow-back-outline"
-                        onPress={navigation.goBack}
-                        size={theme.typography.title3}
-                        color={theme.colors.slate[900]}
-                    />
-                }
-                backgroundColor={theme.colors.white_[10]}
-                statusBarProps={{ backgroundColor: theme.colors.main['600'] }}
-                // containerStyle={theme.styles.shadow1}
-                shadow
+                center={<Text size={'title2'}>{policyApi?.title}</Text>}
+                showGoBack
+                bgColor={theme.colors.white_[10]}
+                iconGoBackColor={theme.colors.black_[10]}
+                statusBarColor={theme.colors.main['500']}
             />
             <ScrollView style={styles.view_container}>
                 <LoadingFetchAPI

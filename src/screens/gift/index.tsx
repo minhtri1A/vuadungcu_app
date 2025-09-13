@@ -1,5 +1,5 @@
 import { Icon, Tab } from '@rneui/themed';
-import Header from 'components/Header';
+import Header from 'components/Header2';
 import Image from 'components/Image';
 import LoadingFetchAPI from 'components/LoadingFetchAPI';
 import Text from 'components/Text';
@@ -21,7 +21,6 @@ import {
 } from 'react-native';
 import { themeType } from 'theme';
 import { calculatorBetweenTwoTime, currencyFormat } from 'utils/helpers';
-/* eslint-disable react-hooks/exhaustive-deps */
 
 interface Props {}
 
@@ -161,15 +160,14 @@ const GiftScreen = memo(function GiftScreen({}: Props) {
     return (
         <>
             <Header
-                centerComponent={{
-                    text: 'Quà tặng của bạn',
-                    style: {
-                        color: theme.colors.slate[900],
-                        fontSize: theme.typography.title2,
-                    },
-                }}
-                backgroundColor={theme.colors.white_[10]}
-                containerStyle={{ borderBottomWidth: 1 }}
+                center={
+                    <Text size={'title2'} ta="center">
+                        Quà tặng của bạn{' '}
+                    </Text>
+                }
+                showGoBack
+                iconGoBackColor={theme.colors.black_[10]}
+                bgColor={theme.colors.white_[10]}
             />
 
             <View flex={1}>

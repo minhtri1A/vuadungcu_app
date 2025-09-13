@@ -1,6 +1,5 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import AfterInteractions from 'components/AfterInteractions';
-import Header from 'components/Header';
+import Header from 'components/Header2';
 import Image from 'components/Image';
 import MiniCart from 'components/MiniCart';
 import Text from 'components/Text';
@@ -126,13 +125,13 @@ const CategoriesScreen = memo(function CategoriesScreen() {
     return (
         <View style={styles.view_container}>
             <StatusBar barStyle="dark-content" backgroundColor="white" />
+
             <Header
-                centerTitle="Danh mục sản phẩm"
-                backgroundColor={theme.colors.white_[10]}
-                centerTitleSize={'title1'}
-                colorBackIcon="black"
-                shadow={true}
-                rightComponent={<MiniCart color={theme.colors.black_[10]} />}
+                center={<Text size={'title1'}>Danh mục sản phẩm</Text>}
+                bgColor={theme.colors.white_[10]}
+                right={<MiniCart color={theme.colors.black_[10]} />}
+                showGoBack
+                iconGoBackColor={theme.colors.black_[10]}
             />
             <AfterInteractions style={styles.view_body}>
                 {/* left */}

@@ -4,7 +4,6 @@ import AfterInteractions from 'components/AfterInteractions';
 import BottomSheet from 'components/BottomSheet';
 import Button from 'components/Button';
 import Disconnect from 'components/Disconnect';
-import Header from 'components/Header';
 import Image from 'components/Image';
 import Text from 'components/Text';
 import View from 'components/View';
@@ -36,6 +35,7 @@ import Config from 'react-native-config';
 import LinearGradient from 'react-native-linear-gradient';
 import { calculatorBetweenTwoTime } from 'utils/helpers';
 import ChatSearchModal from './components/ChatSearchModal';
+import Header from 'components/Header2';
 
 const ChatListUser = memo(function ChatListUser() {
     //hook
@@ -204,8 +204,12 @@ const ChatListUser = memo(function ChatListUser() {
     return (
         <View style={styles.view_container}>
             <Header
-                centerTitle="Chat"
-                rightComponent={
+                center={
+                    <Text size={'title2'} ta="center">
+                        Chat
+                    </Text>
+                }
+                right={
                     <TouchableOpacity
                         style={styles.touch_img_user_header}
                         onPress={visibleBottomSheet}
@@ -222,8 +226,10 @@ const ChatListUser = memo(function ChatListUser() {
                         />
                     </TouchableOpacity>
                 }
-                backgroundColor={theme.colors.white_[10]}
-                shadow={true}
+                showGoBack
+                bgColor={theme.colors.white_[10]}
+                iconGoBackColor={theme.colors.black_[10]}
+                statusBarColor={theme.colors.main['500']}
             />
             <AfterInteractions>
                 {/* contact chat */}

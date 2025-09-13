@@ -1,11 +1,11 @@
 import Clipboard from '@react-native-clipboard/clipboard';
 import { RouteProp, useRoute } from '@react-navigation/native';
-import { Header, Icon } from '@rneui/themed';
-import IconButton from 'components/IconButton';
+import { Icon } from '@rneui/themed';
+import Header from 'components/Header2';
 import Menu, { MenuRef } from 'components/Menu';
 import Text from 'components/Text';
 import View from 'components/View';
-import { useNavigation, useTheme } from 'hooks';
+import { useTheme } from 'hooks';
 import { RootStackParamsList } from 'navigation/type';
 import React, { memo, useEffect, useRef, useState } from 'react';
 import { Linking, RefreshControl, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
@@ -13,15 +13,12 @@ import { showMessage } from 'react-native-flash-message';
 import WebView from 'react-native-webview';
 import { themeType } from 'theme';
 
-/* eslint-disable react-hooks/exhaustive-deps */
-
 interface Props {}
 
 const WebviewScreen = memo(function WebviewScreen({}: Props) {
     //hook
     const { theme } = useTheme();
     const styles = useStyles(theme);
-    const navigation = useNavigation();
     const router = useRoute<RouteProp<RootStackParamsList, 'WebViewScreen'>>();
     //refs
     const webviewRef = useRef<WebView>(null);
@@ -69,20 +66,11 @@ const WebviewScreen = memo(function WebviewScreen({}: Props) {
     return (
         <View flex={1}>
             <Header
-                statusBarProps={{ backgroundColor: theme.colors.main['600'] }}
-                backgroundColor={theme.colors.white_[10]}
-                leftComponent={
-                    <View jC="center" aI="flex-start">
-                        <IconButton
-                            type="ionicon"
-                            name="chevron-back"
-                            color={theme.colors.black_[10]}
-                            size={theme.typography.size(28)}
-                            onPress={navigation.goBack}
-                        />
-                    </View>
-                }
-                centerComponent={
+                statusBarColor={theme.colors.main['600']}
+                bgColor={theme.colors.white_[10]}
+                iconGoBackColor={theme.colors.black_[10]}
+                showGoBack
+                center={
                     <TouchableOpacity
                         activeOpacity={0.8}
                         style={styles.touch_header_center}
@@ -112,7 +100,7 @@ const WebviewScreen = memo(function WebviewScreen({}: Props) {
                         </View>
                     </TouchableOpacity>
                 }
-                rightComponent={
+                right={
                     <View jC="center" aI="flex-end">
                         <Menu
                             ref={menuRef}
@@ -168,10 +156,6 @@ const WebviewScreen = memo(function WebviewScreen({}: Props) {
                         </Menu>
                     </View>
                 }
-                leftContainerStyle={styles.left_container}
-                centerContainerStyle={styles.center_container}
-                rightContainerStyle={styles.right_container}
-                containerStyle={styles.header_container}
             />
             <ScrollView
                 contentContainerStyle={styles.scrollview_content}

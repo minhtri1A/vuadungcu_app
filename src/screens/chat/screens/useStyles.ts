@@ -32,7 +32,7 @@ const useStyles = () => {
         },
         touch_img_user_header: {
             borderRadius: 100,
-            width: theme.dimens.scale(45),
+            width: theme.dimens.scale(40),
             aspectRatio: 1,
             backgroundColor: theme.colors.white_[10],
             ...theme.styles.shadow1,

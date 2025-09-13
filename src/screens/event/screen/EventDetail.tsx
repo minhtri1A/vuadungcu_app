@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import Header from 'components/Header';
-import IconButton from 'components/IconButton';
+import Header from 'components/Header2';
+import Text from 'components/Text';
 import { useEventCoinSwr, useEventQrCodeSwr, useTheme } from 'hooks';
 import { EventCoinConfigResponseType, EventQrCodeConfigResponseType } from 'models';
 import { EventStackParamsList } from 'navigation/type';
@@ -17,7 +17,7 @@ interface Props {
     route: RouteProp<EventStackParamsList, 'EventDetailScreen'>;
 }
 
-export default memo(function EventDetail({ navigation, route }: Props) {
+export default memo(function EventDetail({ route }: Props) {
     //hook
     const { theme } = useTheme();
     const styles = useStyles(theme);
@@ -61,19 +61,12 @@ export default memo(function EventDetail({ navigation, route }: Props) {
     return (
         <>
             <Header
-                leftComponent={
-                    <IconButton
-                        type="ionicon"
-                        name="arrow-back-outline"
-                        onPress={navigation.goBack}
-                        size={theme.typography.title3}
-                        color={theme.colors.white_[10]}
-                    />
+                center={
+                    <Text size={'title2'} ta="center">
+                        {titleHeader}
+                    </Text>
                 }
-                centerComponent={{
-                    text: titleHeader,
-                    style: { color: theme.colors.white_[10], fontSize: theme.typography.title2 },
-                }}
+                showGoBack
             />
 
             <ScrollView style={styles.view_container}>

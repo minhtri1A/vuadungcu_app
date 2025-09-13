@@ -1,11 +1,8 @@
 import { useTheme } from 'hooks';
 import React, { memo } from 'react';
 import { Linking, Platform, StyleSheet } from 'react-native';
-// eslint-disable-next-line no-unused-vars
 import { StackNavigationProp } from '@react-navigation/stack';
-// eslint-disable-next-line no-unused-vars
-import Header from 'components/Header';
-import IconButton from 'components/IconButton';
+import Header from 'components/Header2';
 import Image from 'components/Image';
 import Text from 'components/Text';
 import Touch from 'components/Touch';
@@ -16,7 +13,7 @@ interface Props {
     navigation: StackNavigationProp<any, any>;
 }
 
-export default memo(function IntroductionScreen({ navigation }: Props) {
+export default memo(function IntroductionScreen({}: Props) {
     const { theme } = useTheme();
     const styles = useStyles(theme);
 
@@ -38,27 +35,15 @@ export default memo(function IntroductionScreen({ navigation }: Props) {
     return (
         <>
             <Header
-                leftComponent={
-                    <IconButton
-                        type="ionicon"
-                        name="arrow-back-outline"
-                        onPress={navigation.goBack}
-                        size={theme.typography.title3}
-                        color={theme.colors.slate[900]}
-                    />
+                center={
+                    <Text size={'title2'} ta="center">
+                        Giới thiệu
+                    </Text>
                 }
-                centerComponent={{
-                    text: 'Giới thiệu',
-                    style: {
-                        color: theme.colors.slate[900],
-                        fontSize: theme.typography.title2,
-                        // alignSelf: 'flex-start',
-                    },
-                }}
-                backgroundColor={theme.colors.white_[10]}
-                statusBarProps={{ backgroundColor: theme.colors.main['600'] }}
-                containerStyle={{ borderBottomWidth: 1 }}
-                shadow
+                showGoBack
+                iconGoBackColor={theme.colors.black_[10]}
+                bgColor={theme.colors.white_[10]}
+                statusBarColor={theme.colors.main[500]}
             />
             <View style={styles.view_body}>
                 <Text mt="medium" fw="bold">

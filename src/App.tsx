@@ -12,7 +12,7 @@ import { SET_CONNECTED_INTERNET } from 'features/action';
 import linking from 'navigation/linking';
 import RootStackNavigator from 'navigation/navigator/RootStackNavigator';
 import React, { useEffect } from 'react';
-import { ActivityIndicator, Linking, Platform, StatusBar, useColorScheme } from 'react-native';
+import { ActivityIndicator, Linking, Platform, StatusBar } from 'react-native';
 import Config from 'react-native-config';
 import FlashMessage, { showMessage } from 'react-native-flash-message';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -128,11 +128,9 @@ const App = () => {
         }
     });
 
-    console.log('hihihihi', SENTRY_KEY);
     return (
         <SafeAreaProvider>
-            {/* <StatusBar backgroundColor="transparent" /> */}
-            <StatusBar barStyle="dark-content" backgroundColor="white" translucent={false} />
+            <StatusBar backgroundColor="transparent" />
             <FlashMessage
                 position="top"
                 statusBarHeight={StatusBar.currentHeight}

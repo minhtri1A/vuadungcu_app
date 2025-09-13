@@ -5,7 +5,6 @@ import AfterInteractions from 'components/AfterInteractions';
 import BottomSheet from 'components/BottomSheet';
 import Button from 'components/Button';
 import Disconnect from 'components/Disconnect';
-import Header from 'components/Header';
 import IconButton from 'components/IconButton';
 import Image from 'components/Image';
 import Text from 'components/Text';
@@ -47,6 +46,7 @@ import { sendSentryError } from 'utils/storeHelpers';
 import { v4 as uuidv4 } from 'uuid';
 import ChatMessageItem from '../components/ChatMessageItem';
 import useStyles from './useStyles';
+import Header from 'components/Header2';
 
 const ChatMessage = memo(function ChatMessage() {
     //hook
@@ -678,20 +678,12 @@ const ChatMessage = memo(function ChatMessage() {
         <SafeAreaView style={styles.safe_view} edges={['bottom']}>
             <View style={styles.view_container}>
                 <Header
-                    leftComponent={
-                        <IconButton
-                            type="ionicon"
-                            name="chevron-back"
-                            color={theme.colors.slate[900]}
-                            size={theme.typography.size(30)}
-                            onPress={navigate.GO_BACK_ROUTE}
-                        />
+                    center={
+                        <Text size={'title2'} ta="center">
+                            {userSelectedChat?.user.user_name || ''}
+                        </Text>
                     }
-                    centerComponent={{
-                        text: userSelectedChat?.user.user_name || '',
-                        style: styles.header_center_style,
-                    }}
-                    rightComponent={
+                    right={
                         <TouchableOpacity
                             style={styles.touch_img_user_header}
                             onPress={visibleSheetSeller}
@@ -708,8 +700,9 @@ const ChatMessage = memo(function ChatMessage() {
                             />
                         </TouchableOpacity>
                     }
-                    backgroundColor={theme.colors.white_[10]}
-                    viewContainerStyle={styles.header_view_container}
+                    showGoBack
+                    iconGoBackColor={theme.colors.black_[10]}
+                    bgColor={theme.colors.white_[10]}
                 />
                 <AfterInteractions>
                     {/* body */}

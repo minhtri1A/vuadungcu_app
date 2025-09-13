@@ -2,7 +2,7 @@
 import { RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import Button from 'components/Button';
-import Header from 'components/Header';
+import Header from 'components/Header2';
 import IconButton from 'components/IconButton';
 import Loading from 'components/Loading';
 import Text from 'components/Text';
@@ -104,15 +104,10 @@ const EditReferralScreen = memo(function EditReferralScreen({ navigation, route 
     return (
         <>
             <Header
-                centerComponent={{
-                    text: 'Nhập mã giới thiệu',
-                    style: {
-                        color: theme.colors.slate[900],
-                        fontSize: theme.typography.title2,
-                        alignSelf: 'flex-start',
-                    },
-                }}
-                rightComponent={
+                showGoBack
+                iconGoBackColor={theme.colors.black_[10]}
+                center={<Text size={'title1'}>Nhập mã giới thiệu</Text>}
+                right={
                     <IconButton
                         type="ionicon"
                         name="qr-code-sharp"
@@ -120,10 +115,8 @@ const EditReferralScreen = memo(function EditReferralScreen({ navigation, route 
                         onPress={navigateQRCodeScreen}
                     />
                 }
-                backgroundColor={theme.colors.white_[10]}
-                statusBarProps={{ backgroundColor: theme.colors.main['600'] }}
-                containerStyle={{ borderBottomWidth: 1 }}
-                shadow
+                bgColor={theme.colors.white_[10]}
+                statusBarColor={theme.colors.main['600']}
             />
             {!isEmpty(referred_status) ? (
                 <Text p={'small'} fw="bold">

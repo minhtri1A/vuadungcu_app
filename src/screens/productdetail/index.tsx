@@ -1,10 +1,9 @@
-/* eslint-disable react-native/no-inline-styles */
 import { RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import AfterInteractions from 'components/AfterInteractions';
 import Disconnect from 'components/Disconnect';
 import FocusAwareStatusBar from 'components/FocusAwareStatusBar';
-import Header from 'components/Header';
+import Header from 'components/Header2';
 import ListProductsWrapper from 'components/ListProductsWrapper';
 import MiniCart from 'components/MiniCart';
 import MiniChat from 'components/MiniChat';
@@ -27,8 +26,6 @@ import { ProductDetailStackParamsList } from 'navigation/type';
 import React, { memo, useCallback, useEffect, useState } from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import Animated, {
-    Extrapolation,
-    interpolate,
     interpolateColor,
     useAnimatedScrollHandler,
     useAnimatedStyle,
@@ -131,12 +128,10 @@ const ProductDetailScreen = memo(function ProductDetailScreen({ route, navigatio
     const initValueScroll = useSharedValue(0);
 
     const headerAnimatedStyle = useAnimatedStyle(() => ({
-        opacity: interpolate(
+        backgroundColor: interpolateColor(
             initValueScroll.value,
-
             [0, 100],
-            [0, 1],
-            Extrapolation.CLAMP
+            ['transparent', theme.colors.white_[10]]
         ),
     }));
 
@@ -242,8 +237,7 @@ const ProductDetailScreen = memo(function ProductDetailScreen({ route, navigatio
     /* ----- render ----- */
     const renderDetailHeader = () => (
         <Header
-            containerStyle={styles.header_container}
-            leftComponent={
+            left={
                 <TouchAnimated
                     style={[styles.view_header_left, bgIconAnimatedStyle]}
                     onPress={navigation.goBack}
@@ -255,7 +249,7 @@ const ProductDetailScreen = memo(function ProductDetailScreen({ route, navigatio
                     />
                 </TouchAnimated>
             }
-            rightComponent={
+            right={
                 <View style={styles.view_header_right}>
                     <MiniChat
                         containerStyle={[styles.chat_container, bgIconAnimatedStyle]}
@@ -271,12 +265,9 @@ const ProductDetailScreen = memo(function ProductDetailScreen({ route, navigatio
                     />
                 </View>
             }
-            backgroundColor={theme.colors.transparent}
-            animated={true}
-            colorsAnimated={[theme.colors.white_[10], theme.colors.white_[10]]}
-            bgViewHeaderStyle={headerAnimatedStyle}
-            statusBarProps={{ barStyle: 'dark-content' }}
-            rightContainerStyle={{ flex: 0.25 }}
+            bgColor={theme.colors.transparent}
+            animatedStyle={headerAnimatedStyle}
+            isShadow={false}
         />
     );
 
