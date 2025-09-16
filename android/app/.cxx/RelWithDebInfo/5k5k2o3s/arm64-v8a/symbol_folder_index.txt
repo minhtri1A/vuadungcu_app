@@ -1,1 +1,0 @@
-/Users/minhtri-ntl/Desktop/projects/vuadungcu_app/android/app/build/intermediates/cxx/RelWithDebInfo/5k5k2o3s/obj/arm64-v8a
