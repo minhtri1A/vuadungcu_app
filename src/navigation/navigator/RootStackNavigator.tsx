@@ -208,7 +208,11 @@ const RootStackNavigator = memo(() => {
         }
         return listNavigator;
     };
-    return <RootStack.Navigator>{createAppNavigator(navigatorConfig)}</RootStack.Navigator>;
+    return (
+        <RootStack.Navigator screenOptions={{ freezeOnBlur: true }}>
+            {createAppNavigator(navigatorConfig)}
+        </RootStack.Navigator>
+    );
 });
 
 const useStyles = (theme: themeType) => {

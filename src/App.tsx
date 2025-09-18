@@ -38,7 +38,7 @@ import RNBootSplash from 'react-native-bootsplash';
  */
 
 Sentry.init({
-    // dsn: SENTRY_KEY,
+    dsn: SENTRY_KEY,
     // Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
     // We recommend adjusting this value in production.
     tracesSampleRate: 0.5,
@@ -52,8 +52,6 @@ const App = () => {
             fontFamily: Platform.OS === 'ios' ? 'Helvetica' : 'Roboto',
         },
     };
-
-    console.log('check configs ', Config.REACT_NATIVE_APP_IS_MODE);
 
     //start app
     useEffect(() => {

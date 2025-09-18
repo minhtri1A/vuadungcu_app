@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -38,6 +38,10 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		10CA87732E7BABD300DD202A /* container */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = container; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		13B07F8C1A680F5B00A75B9A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -53,6 +57,7 @@
 		13B07FAE1A68108700A75B9A /* vuadungcu_app */ = {
 			isa = PBXGroup;
 			children = (
+				10CA87732E7BABD300DD202A /* container */,
 				109237F32E73A05A0051EED1 /* vuadungcu_app.entitlements */,
 				108108A12E7258CE00A5E251 /* GoogleService-Info.plist */,
 				108108A22E7258CE00A5E251 /* GoogleService-Info-dev.plist */,
@@ -135,6 +140,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				10CA87732E7BABD300DD202A /* container */,
 			);
 			name = vuadungcu_app;
 			productName = vuadungcu_app;

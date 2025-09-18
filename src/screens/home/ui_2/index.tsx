@@ -4,7 +4,6 @@ import ListProductsWrapper from 'components/ListProductsWrapper';
 import {
     useAppSelector,
     useInternet,
-    useNavigation,
     usePreventAppExist,
     useProductSwrInfinity,
     useTheme,
@@ -44,6 +43,7 @@ import { requestNotifications } from 'react-native-permissions';
 import { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated';
 import { services } from 'services';
 import HomeProductCategory from './components/HomeProductCategory';
+import { getAnalytics, logEvent, firebase } from '@react-native-firebase/analytics';
 import Button from 'components/Button';
 
 interface Props {
@@ -57,7 +57,6 @@ const HomeScreen = memo(
         const isInternet = useInternet();
         const isAppStart = useAppSelector((state) => state.apps.isAppStart);
         const styles = useStyles();
-        const navigation = useNavigation();
         //state
         //swr
         const {
@@ -96,6 +95,7 @@ const HomeScreen = memo(
         useEffect(() => {
             (async () => {
                 try {
+                    await firebase.analytics().setAnalyticsCollectionEnabled(true);
                     // await BootSplash.hide({ fade: true });
                     if (isAppStart) {
                         //check token fcm start app
@@ -243,6 +243,14 @@ const HomeScreen = memo(
         //     // setRefreshControl(refresh);
         // };
 
+        const testSendGTM = async () => {
+            const analyticsInstance = getAnalytics();
+
+            await logEvent(analyticsInstance, 'login', {
+                method: 'user-tri-login-ios',
+            }).then((v) => console.log('then analytics ', v));
+        };
+
         return (
             <View style={styles.container}>
                 <FocusAwareStatusBar
@@ -251,6 +259,7 @@ const HomeScreen = memo(
                     barStyle={'light-content'}
                 />
                 <HomeHeader initValueAnimated={initValueAnimated} />
+                <Button title={'test send GTM'} onPress={testSendGTM} />
 
                 {/*Section List ScrollView*/}
                 {!isInternet ? (
